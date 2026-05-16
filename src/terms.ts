@@ -1,4 +1,4 @@
-export type Category =
+﻿export type Category =
   | 'Market Structure'
   | 'Liquidity'
   | 'Price Delivery'
@@ -12,6 +12,7 @@ export interface Term {
   term: string
   abbr?: string
   category: Category
+  diagramId?: string
   definition: string
   example?: string
   related: string[]
@@ -28,34 +29,38 @@ export const CATEGORY_COLORS: Record<Category, string> = {
 }
 
 export const TERMS: Term[] = [
-  // ── Market Structure ──────────────────────────────────────────────────────
+  // â”€â”€ Market Structure â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: 'market-structure',
     term: 'Market Structure',
     category: 'Market Structure',
+    diagramId: 'market-structure',
     definition: 'The framework of swing highs and swing lows that defines the directional bias of price. Bullish market structure consists of higher highs and higher lows. Bearish market structure consists of lower lows and lower highs. ICT reads market structure across multiple timeframes to determine institutional intent.',
     related: ['Swing High', 'Swing Low', 'Break of Structure', 'Change of Character', 'MTFA'],
   },
   {
     id: 'break-of-structure',
+    diagramId: 'break-of-structure',
     term: 'Break of Structure',
     abbr: 'BOS',
     category: 'Market Structure',
-    definition: 'When price breaks a previous swing high (in an uptrend) or swing low (in a downtrend), confirming continuation of the current trend. A BOS is a structural continuation signal — price is expanding in the direction of the prevailing higher timeframe bias.',
+    definition: 'When price breaks a previous swing high (in an uptrend) or swing low (in a downtrend), confirming continuation of the current trend. A BOS is a structural continuation signal â€” price is expanding in the direction of the prevailing higher timeframe bias.',
     example: 'In a bullish trend, price forms HH-HL-HH. Each break above the previous swing high is a BOS confirming bullish structure.',
     related: ['Change of Character', 'Market Structure', 'Swing High', 'Swing Low'],
   },
   {
     id: 'change-of-character',
+    diagramId: 'change-of-character',
     term: 'Change of Character',
     abbr: 'ChoCH',
     category: 'Market Structure',
     definition: 'A break of the most recent swing low in a bullish trend (or swing high in a bearish trend) that signals a potential reversal. Unlike a BOS which confirms continuation, a ChoCH suggests the market may be shifting direction. Used to identify the beginning of a new phase.',
-    example: 'Price is making HH-HL. Then price breaks below the last HL — this is a ChoCH signaling possible bearish shift.',
+    example: 'Price is making HH-HL. Then price breaks below the last HL â€” this is a ChoCH signaling possible bearish shift.',
     related: ['Break of Structure', 'Market Structure', 'Market Structure Shift', 'Displacement'],
   },
   {
     id: 'market-structure-shift',
+    diagramId: 'market-structure-shift',
     term: 'Market Structure Shift',
     abbr: 'MSS',
     category: 'Market Structure',
@@ -78,6 +83,7 @@ export const TERMS: Term[] = [
   },
   {
     id: 'equal-highs',
+    diagramId: 'equal-highs',
     term: 'Equal Highs',
     abbr: 'EQH',
     category: 'Market Structure',
@@ -86,6 +92,7 @@ export const TERMS: Term[] = [
   },
   {
     id: 'equal-lows',
+    diagramId: 'equal-lows',
     term: 'Equal Lows',
     abbr: 'EQL',
     category: 'Market Structure',
@@ -109,12 +116,12 @@ export const TERMS: Term[] = [
     related: ['Equal Lows', 'Sell Side Liquidity'],
   },
 
-  // ── Liquidity ─────────────────────────────────────────────────────────────
+  // â”€â”€ Liquidity â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: 'liquidity',
     term: 'Liquidity',
     category: 'Liquidity',
-    definition: 'Orders resting in the market — specifically stop loss orders and limit orders that haven\'t been triggered yet. ICT views price delivery as a process of seeking and collecting liquidity. Institutions need massive order flow to execute their positions, so price gravitates toward areas where many orders are clustered.',
+    definition: 'Orders resting in the market â€” specifically stop loss orders and limit orders that haven\'t been triggered yet. ICT views price delivery as a process of seeking and collecting liquidity. Institutions need massive order flow to execute their positions, so price gravitates toward areas where many orders are clustered.',
     related: ['Buy Side Liquidity', 'Sell Side Liquidity', 'Liquidity Pool', 'Stop Hunt'],
   },
   {
@@ -122,8 +129,8 @@ export const TERMS: Term[] = [
     term: 'Buy Side Liquidity',
     abbr: 'BSL',
     category: 'Liquidity',
-    definition: 'Buy stop orders resting above swing highs, equal highs, and obvious resistance levels. When retail traders short at resistance, they place stops above the highs — this creates a pool of buy orders. Smart money drives price up to sweep these stops (triggering buy orders they can sell into) before reversing lower.',
-    example: 'Price taps above EQH, triggers buy stops, then reverses sharply — BSL has been swept.',
+    definition: 'Buy stop orders resting above swing highs, equal highs, and obvious resistance levels. When retail traders short at resistance, they place stops above the highs â€” this creates a pool of buy orders. Smart money drives price up to sweep these stops (triggering buy orders they can sell into) before reversing lower.',
+    example: 'Price taps above EQH, triggers buy stops, then reverses sharply â€” BSL has been swept.',
     related: ['Sell Side Liquidity', 'Equal Highs', 'Liquidity Sweep', 'Stop Hunt'],
   },
   {
@@ -131,8 +138,8 @@ export const TERMS: Term[] = [
     term: 'Sell Side Liquidity',
     abbr: 'SSL',
     category: 'Liquidity',
-    definition: 'Sell stop orders resting below swing lows, equal lows, and obvious support levels. Retail longs place stops below support — smart money drives price down to trigger those stops (creating sell orders they can buy against) before reversing higher.',
-    example: 'Price dips below EQL, sweeps sell stops, then aggressively reverses up — SSL has been engineered.',
+    definition: 'Sell stop orders resting below swing lows, equal lows, and obvious support levels. Retail longs place stops below support â€” smart money drives price down to trigger those stops (creating sell orders they can buy against) before reversing higher.',
+    example: 'Price dips below EQL, sweeps sell stops, then aggressively reverses up â€” SSL has been engineered.',
     related: ['Buy Side Liquidity', 'Equal Lows', 'Liquidity Sweep', 'Stop Hunt'],
   },
   {
@@ -144,25 +151,27 @@ export const TERMS: Term[] = [
   },
   {
     id: 'liquidity-sweep',
+    diagramId: 'liquidity-sweep',
     term: 'Liquidity Sweep',
     category: 'Liquidity',
     definition: 'When price temporarily moves beyond a key level to trigger resting orders, then reverses. The sweep is often a single candle or wick that pierces the level. ICT looks for displacement after the sweep as confirmation that institutional orders have been filled and the real move is beginning.',
-    example: 'Price wicks below the Asian low, taking sell stops, then closes back above — the sweep has occurred.',
+    example: 'Price wicks below the Asian low, taking sell stops, then closes back above â€” the sweep has occurred.',
     related: ['Stop Hunt', 'Judas Swing', 'Buy Side Liquidity', 'Sell Side Liquidity', 'Displacement'],
   },
   {
     id: 'stop-hunt',
     term: 'Stop Hunt',
     category: 'Liquidity',
-    definition: 'A deliberate engineered move by smart money to trigger retail stop loss orders clustered at predictable levels. Once stops are triggered, the engineered move reverses and the real directional move begins. Stop hunts are not random — they are a systematic feature of how smart money accumulates or distributes positions.',
+    definition: 'A deliberate engineered move by smart money to trigger retail stop loss orders clustered at predictable levels. Once stops are triggered, the engineered move reverses and the real directional move begins. Stop hunts are not random â€” they are a systematic feature of how smart money accumulates or distributes positions.',
     related: ['Liquidity Sweep', 'Judas Swing', 'Liquidity Pool'],
   },
   {
     id: 'draw-on-liquidity',
+    diagramId: 'draw-on-liquidity',
     term: 'Draw on Liquidity',
     abbr: 'DOL',
     category: 'Liquidity',
-    definition: 'The target that price is being pulled toward — the next significant pool of liquidity above or below current price. Identifying the DOL gives a trader a directional bias and a logical profit target. Price is always delivering toward the nearest significant liquidity pool in the direction of the HTF bias.',
+    definition: 'The target that price is being pulled toward â€” the next significant pool of liquidity above or below current price. Identifying the DOL gives a trader a directional bias and a logical profit target. Price is always delivering toward the nearest significant liquidity pool in the direction of the HTF bias.',
     example: 'If price broke bullish structure and the next EQH is 50 points above, that EQH is the DOL.',
     related: ['Buy Side Liquidity', 'Sell Side Liquidity', 'Liquidity Pool', 'PD Array'],
   },
@@ -170,25 +179,27 @@ export const TERMS: Term[] = [
     id: 'liquidity-void',
     term: 'Liquidity Void',
     category: 'Liquidity',
-    definition: 'A price area that was traversed so quickly that very little trading occurred there — essentially a void of orders. Price tends to return to fill these voids as the market seeks to create two-sided trading at every level. Similar to a Fair Value Gap but used in a broader context.',
+    definition: 'A price area that was traversed so quickly that very little trading occurred there â€” essentially a void of orders. Price tends to return to fill these voids as the market seeks to create two-sided trading at every level. Similar to a Fair Value Gap but used in a broader context.',
     related: ['Fair Value Gap', 'Imbalance', 'Rebalancing'],
   },
   {
     id: 'inducement',
+    diagramId: 'inducement',
     term: 'Inducement',
     category: 'Liquidity',
-    definition: 'A minor liquidity pool deliberately engineered to pull retail traders into a trade in the wrong direction before the real move. Inducement is the bait — price sweeps a small high or low to induce retail entries, before reversing toward the actual target. Recognizing inducement prevents entering too early.',
+    definition: 'A minor liquidity pool deliberately engineered to pull retail traders into a trade in the wrong direction before the real move. Inducement is the bait â€” price sweeps a small high or low to induce retail entries, before reversing toward the actual target. Recognizing inducement prevents entering too early.',
     example: 'In a downtrend, price makes a small rally creating a minor swing high (inducement). Retail traders go long; price then sweeps that high and collapses toward the real SSL target.',
     related: ['Liquidity Sweep', 'Stop Hunt', 'Draw on Liquidity'],
   },
 
-  // ── Price Delivery ─────────────────────────────────────────────────────────
+  // â”€â”€ Price Delivery â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: 'fair-value-gap',
+    diagramId: 'fair-value-gap',
     term: 'Fair Value Gap',
     abbr: 'FVG',
     category: 'Price Delivery',
-    definition: 'A three-candle formation where there is a gap between the wick of the first candle and the wick of the third candle, with no overlap. This represents an imbalance in price delivery — price moved so fast in one direction that both sides of the market were not represented. FVGs act as magnets for price to return and rebalance.',
+    definition: 'A three-candle formation where there is a gap between the wick of the first candle and the wick of the third candle, with no overlap. This represents an imbalance in price delivery â€” price moved so fast in one direction that both sides of the market were not represented. FVGs act as magnets for price to return and rebalance.',
     example: 'Candle 1 high: 100. Candle 2 is large and bullish. Candle 3 low: 105. The gap between 100 and 105 is the FVG.',
     related: ['SIBI', 'BISI', 'Imbalance', 'Rebalancing', 'Displacement'],
   },
@@ -197,7 +208,7 @@ export const TERMS: Term[] = [
     term: 'Sell Stops Below / Inefficiency',
     abbr: 'SIBI',
     category: 'Price Delivery',
-    definition: 'A bearish Fair Value Gap — a downside imbalance where the high of the third candle does not reach the low of the first candle. Price left an inefficiency on the way down. These act as resistance when price returns to them and are used as entry areas in bearish scenarios.',
+    definition: 'A bearish Fair Value Gap â€” a downside imbalance where the high of the third candle does not reach the low of the first candle. Price left an inefficiency on the way down. These act as resistance when price returns to them and are used as entry areas in bearish scenarios.',
     related: ['Fair Value Gap', 'BISI', 'Order Block', 'Displacement'],
   },
   {
@@ -205,15 +216,16 @@ export const TERMS: Term[] = [
     term: 'Buy Stops Above / Inefficiency',
     abbr: 'BISI',
     category: 'Price Delivery',
-    definition: 'A bullish Fair Value Gap — an upside imbalance where the low of the third candle does not reach the high of the first candle. Price left an inefficiency on the way up. These act as support when price returns and are entry areas in bullish scenarios.',
+    definition: 'A bullish Fair Value Gap â€” an upside imbalance where the low of the third candle does not reach the high of the first candle. Price left an inefficiency on the way up. These act as support when price returns and are entry areas in bullish scenarios.',
     related: ['Fair Value Gap', 'SIBI', 'Order Block', 'Displacement'],
   },
   {
     id: 'displacement',
+    diagramId: 'displacement',
     term: 'Displacement',
     category: 'Price Delivery',
-    definition: 'A strong, impulsive one-directional price move that leaves behind Fair Value Gaps and breaks market structure with authority. Displacement is the signature of institutional order flow entering the market. It is the "D" in ICT\'s PD Array hierarchy — the most important confirmation that real intent is present.',
-    example: 'After sweeping SSL, a large 5-minute bullish candle forms that completely engulfs the previous candles — this is displacement.',
+    definition: 'A strong, impulsive one-directional price move that leaves behind Fair Value Gaps and breaks market structure with authority. Displacement is the signature of institutional order flow entering the market. It is the "D" in ICT\'s PD Array hierarchy â€” the most important confirmation that real intent is present.',
+    example: 'After sweeping SSL, a large 5-minute bullish candle forms that completely engulfs the previous candles â€” this is displacement.',
     related: ['Fair Value Gap', 'Market Structure Shift', 'Change of Character', 'Power of Three'],
   },
   {
@@ -227,14 +239,15 @@ export const TERMS: Term[] = [
     id: 'rebalancing',
     term: 'Rebalancing',
     category: 'Price Delivery',
-    definition: 'When price returns to fill an imbalance or FVG, allowing two-sided trading to occur at that level. Rebalancing is normal market behavior and is often where ICT traders look for entries — price returns to the imbalance, fills it, then continues in the original direction.',
+    definition: 'When price returns to fill an imbalance or FVG, allowing two-sided trading to occur at that level. Rebalancing is normal market behavior and is often where ICT traders look for entries â€” price returns to the imbalance, fills it, then continues in the original direction.',
     related: ['Fair Value Gap', 'Imbalance', 'Optimal Trade Entry'],
   },
   {
     id: 'premium-discount',
+    diagramId: 'premium-discount',
     term: 'Premium / Discount',
     category: 'Price Delivery',
-    definition: 'The concept of price being expensive (premium) or cheap (discount) relative to a defined range. Above the 50% equilibrium of a swing range is premium — where sellers look to sell. Below 50% is discount — where buyers look to buy. ICT buys in discount and sells in premium.',
+    definition: 'The concept of price being expensive (premium) or cheap (discount) relative to a defined range. Above the 50% equilibrium of a swing range is premium â€” where sellers look to sell. Below 50% is discount â€” where buyers look to buy. ICT buys in discount and sells in premium.',
     related: ['Equilibrium', 'Optimal Trade Entry', 'PD Array', 'Fibonacci'],
   },
   {
@@ -247,6 +260,7 @@ export const TERMS: Term[] = [
   },
   {
     id: 'ote',
+    diagramId: 'ote',
     term: 'Optimal Trade Entry',
     abbr: 'OTE',
     category: 'Price Delivery',
@@ -266,47 +280,52 @@ export const TERMS: Term[] = [
     term: 'PD Array',
     abbr: 'PDA',
     category: 'Price Delivery',
-    definition: 'Premium / Discount Array — the hierarchy of ICT tools used to determine where price is likely to react. From highest to lowest significance: Old Highs/Lows, Liquidity Voids, Fair Value Gaps, Volume Imbalances, Order Blocks, Breaker Blocks, Mitigation Blocks, Propulsion Blocks, Rejection Blocks.',
+    definition: 'Premium / Discount Array â€” the hierarchy of ICT tools used to determine where price is likely to react. From highest to lowest significance: Old Highs/Lows, Liquidity Voids, Fair Value Gaps, Volume Imbalances, Order Blocks, Breaker Blocks, Mitigation Blocks, Propulsion Blocks, Rejection Blocks.',
     related: ['Fair Value Gap', 'Order Block', 'Breaker Block', 'Premium / Discount'],
   },
   {
     id: 'volume-imbalance',
+    diagramId: 'volume-imbalance',
     term: 'Volume Imbalance',
     category: 'Price Delivery',
-    definition: 'Similar to a Fair Value Gap but occurs within a single candle — the close of one candle and the open of the next candle leave a gap. Volume imbalances are less significant than FVGs but still act as potential support/resistance levels where price may pause or react.',
+    definition: 'Similar to a Fair Value Gap but occurs within a single candle â€” the close of one candle and the open of the next candle leave a gap. Volume imbalances are less significant than FVGs but still act as potential support/resistance levels where price may pause or react.',
     related: ['Fair Value Gap', 'Imbalance', 'PD Array'],
   },
   {
     id: 'balanced-price-range',
+    diagramId: 'balanced-price-range',
     term: 'Balanced Price Range',
     abbr: 'BPR',
     category: 'Price Delivery',
-    definition: 'When a bullish FVG and a bearish FVG overlap, creating a zone where both sides of the market have been represented. The overlap area is the balanced price range — a high-probability reaction zone. Price often reacts sharply from BPRs.',
+    definition: 'When a bullish FVG and a bearish FVG overlap, creating a zone where both sides of the market have been represented. The overlap area is the balanced price range â€” a high-probability reaction zone. Price often reacts sharply from BPRs.',
     related: ['Fair Value Gap', 'SIBI', 'BISI'],
   },
 
-  // ── Order Blocks ──────────────────────────────────────────────────────────
+  // â”€â”€ Order Blocks â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: 'order-block',
+    diagramId: 'order-block',
     term: 'Order Block',
     abbr: 'OB',
     category: 'Order Blocks',
-    definition: 'The last opposing candle before a significant move. A bullish order block is the last bearish candle before a bullish displacement — it represents where institutional buy orders were placed. A bearish order block is the last bullish candle before a bearish displacement. Price frequently returns to order blocks before continuing.',
+    definition: 'The last opposing candle before a significant move. A bullish order block is the last bearish candle before a bullish displacement â€” it represents where institutional buy orders were placed. A bearish order block is the last bullish candle before a bearish displacement. Price frequently returns to order blocks before continuing.',
     example: 'Before a strong bull run, the last red candle in the base is the bullish OB. When price returns to that candle, it is entering the institutional buy zone.',
     related: ['Breaker Block', 'Mitigation Block', 'Fair Value Gap', 'Displacement'],
   },
   {
     id: 'breaker-block',
+    diagramId: 'breaker-block',
     term: 'Breaker Block',
     category: 'Order Blocks',
-    definition: 'A former order block that has been violated — price has broken through it and the OB has "failed." When a bullish OB fails (price falls through it), it becomes a bearish breaker. When a bearish OB fails (price rises through it), it becomes a bullish breaker. Breakers act as significant support/resistance levels.',
+    definition: 'A former order block that has been violated â€” price has broken through it and the OB has "failed." When a bullish OB fails (price falls through it), it becomes a bearish breaker. When a bearish OB fails (price rises through it), it becomes a bullish breaker. Breakers act as significant support/resistance levels.',
     related: ['Order Block', 'Mitigation Block', 'Market Structure'],
   },
   {
     id: 'mitigation-block',
+    diagramId: 'mitigation-block',
     term: 'Mitigation Block',
     category: 'Order Blocks',
-    definition: 'An order block that has been partially "mitigated" — price has returned to it and absorbed some of the resting orders, but not fully broken through. After mitigation, the remaining orders at that level continue to act as support/resistance, often providing another entry opportunity.',
+    definition: 'An order block that has been partially "mitigated" â€” price has returned to it and absorbed some of the resting orders, but not fully broken through. After mitigation, the remaining orders at that level continue to act as support/resistance, often providing another entry opportunity.',
     related: ['Order Block', 'Breaker Block', 'Rebalancing'],
   },
   {
@@ -320,7 +339,7 @@ export const TERMS: Term[] = [
     id: 'rejection-block',
     term: 'Rejection Block',
     category: 'Order Blocks',
-    definition: 'A candle with a significant wick that shows strong rejection of a price level. The wick itself represents an area where orders were present. ICT uses rejection blocks as potential entry areas — when price returns to the upper portion of the wick, it may find support or resistance.',
+    definition: 'A candle with a significant wick that shows strong rejection of a price level. The wick itself represents an area where orders were present. ICT uses rejection blocks as potential entry areas â€” when price returns to the upper portion of the wick, it may find support or resistance.',
     related: ['Order Block', 'Liquidity Sweep', 'Stop Hunt'],
   },
   {
@@ -338,9 +357,10 @@ export const TERMS: Term[] = [
     related: ['Liquidity Void', 'Fair Value Gap', 'Displacement'],
   },
 
-  // ── Sessions & Time ───────────────────────────────────────────────────────
+  // â”€â”€ Sessions & Time â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: 'kill-zones',
+    diagramId: 'kill-zones',
     term: 'Kill Zones',
     category: 'Sessions & Time',
     definition: 'Specific time windows during the trading day when institutional participation is highest and the highest probability ICT setups occur. The four kill zones are: Asian (7PM-11PM EST), London (2AM-5AM EST), New York AM (8:30AM-11AM EST), and New York PM (1:30PM-4PM EST).',
@@ -350,28 +370,28 @@ export const TERMS: Term[] = [
     id: 'asian-session',
     term: 'Asian Session',
     category: 'Sessions & Time',
-    definition: 'The overnight trading window roughly 6PM-2AM EST (7PM-11PM kill zone). During Asia, price tends to consolidate and establish the high and low of the session (the "Asia range"). This range is a key reference for the London and New York sessions — London often sweeps one side of the Asia range.',
+    definition: 'The overnight trading window roughly 6PM-2AM EST (7PM-11PM kill zone). During Asia, price tends to consolidate and establish the high and low of the session (the "Asia range"). This range is a key reference for the London and New York sessions â€” London often sweeps one side of the Asia range.',
     related: ['Kill Zones', 'Asia Range', 'Judas Swing', 'London Kill Zone'],
   },
   {
     id: 'asia-range',
     term: 'Asia Range',
     category: 'Sessions & Time',
-    definition: 'The high and low established during the Asian session. The Asia range high and low are key liquidity levels — buy stops sit above the high, sell stops sit below the low. London session frequently sweeps one side of the Asia range before reversing in the true direction of the day.',
+    definition: 'The high and low established during the Asian session. The Asia range high and low are key liquidity levels â€” buy stops sit above the high, sell stops sit below the low. London session frequently sweeps one side of the Asia range before reversing in the true direction of the day.',
     related: ['Asian Session', 'Liquidity Sweep', 'London Kill Zone', 'Judas Swing'],
   },
   {
     id: 'london-kill-zone',
     term: 'London Kill Zone',
     category: 'Sessions & Time',
-    definition: 'The 2AM-5AM EST window when London markets open. One of the highest probability windows for ICT setups. London frequently creates the Judas swing — sweeping one side of the Asia range to engineer liquidity before establishing the true directional move. Many daily high/low formations originate in London.',
+    definition: 'The 2AM-5AM EST window when London markets open. One of the highest probability windows for ICT setups. London frequently creates the Judas swing â€” sweeping one side of the Asia range to engineer liquidity before establishing the true directional move. Many daily high/low formations originate in London.',
     related: ['Kill Zones', 'Judas Swing', 'Asia Range', 'New York AM Kill Zone'],
   },
   {
     id: 'ny-am-kill-zone',
     term: 'New York AM Kill Zone',
     category: 'Sessions & Time',
-    definition: 'The 8:30AM-11AM EST window — the highest liquidity and most volatile session of the US trading day. Encompasses the NY open, economic data releases (8:30AM), and the first hour of full US participation. Many of the highest R-multiple ICT setups occur in this window.',
+    definition: 'The 8:30AM-11AM EST window â€” the highest liquidity and most volatile session of the US trading day. Encompasses the NY open, economic data releases (8:30AM), and the first hour of full US participation. Many of the highest R-multiple ICT setups occur in this window.',
     related: ['Kill Zones', 'New York PM Kill Zone', 'FOMC', 'Macro'],
   },
   {
@@ -390,6 +410,7 @@ export const TERMS: Term[] = [
   },
   {
     id: 'macro',
+    diagramId: 'macro',
     term: 'Macro',
     category: 'Sessions & Time',
     definition: 'Specific 20-minute windows during the trading day when algorithmic price delivery is most predictable. Key macros: 8:50-9:10 AM, 9:50-10:10 AM, 10:50-11:10 AM, 1:10-1:30 PM, 2:10-2:30 PM, 3:15-4:00 PM EST. Within macros, ICT looks for the highest quality setups as algo behavior is most consistent.',
@@ -399,14 +420,14 @@ export const TERMS: Term[] = [
     id: 'silver-bullet',
     term: 'Silver Bullet',
     category: 'Sessions & Time',
-    definition: 'A specific ICT model that operates within defined time windows — 3-4AM, 10-11AM, or 2-3PM EST. The setup involves a liquidity sweep followed by an FVG entry in the direction of the bias. Named for its precision and high probability when the conditions align properly.',
+    definition: 'A specific ICT model that operates within defined time windows â€” 3-4AM, 10-11AM, or 2-3PM EST. The setup involves a liquidity sweep followed by an FVG entry in the direction of the bias. Named for its precision and high probability when the conditions align properly.',
     related: ['Macro', 'Fair Value Gap', 'Liquidity Sweep', 'AMD & Bias'],
   },
   {
     id: 'fomc',
     term: 'FOMC',
     category: 'Sessions & Time',
-    definition: 'Federal Open Market Committee announcements — the highest impact economic events in US markets. Released 8 times per year at 2PM EST. ICT advises staying out of the market around FOMC releases due to extreme volatility and unpredictable algorithmic behavior. FOMC sessions often see massive liquidity sweeps in both directions.',
+    definition: 'Federal Open Market Committee announcements â€” the highest impact economic events in US markets. Released 8 times per year at 2PM EST. ICT advises staying out of the market around FOMC releases due to extreme volatility and unpredictable algorithmic behavior. FOMC sessions often see massive liquidity sweeps in both directions.',
     related: ['New York PM Kill Zone', 'Kill Zones'],
   },
   {
@@ -421,7 +442,7 @@ export const TERMS: Term[] = [
     term: 'Previous Day High / Low',
     abbr: 'PDH / PDL',
     category: 'Sessions & Time',
-    definition: 'The high and low of the previous trading day. These are key reference levels for the current day — buy stops rest above PDH, sell stops below PDL. ICT frequently uses PDH and PDL as liquidity targets and entry level references.',
+    definition: 'The high and low of the previous trading day. These are key reference levels for the current day â€” buy stops rest above PDH, sell stops below PDL. ICT frequently uses PDH and PDL as liquidity targets and entry level references.',
     related: ['PWH / PWL', 'PMH / PML', 'Buy Side Liquidity', 'Sell Side Liquidity'],
   },
   {
@@ -429,7 +450,7 @@ export const TERMS: Term[] = [
     term: 'Previous Week High / Low',
     abbr: 'PWH / PWL',
     category: 'Sessions & Time',
-    definition: 'The high and low from the previous trading week. Significant liquidity pools — stops accumulate above and below these levels over the week. PWH and PWL are often weekly draw on liquidity targets and key reference levels for weekly bias analysis.',
+    definition: 'The high and low from the previous trading week. Significant liquidity pools â€” stops accumulate above and below these levels over the week. PWH and PWL are often weekly draw on liquidity targets and key reference levels for weekly bias analysis.',
     related: ['PDH / PDL', 'PMH / PML', 'Buy Side Liquidity', 'Weekly Profile'],
   },
   {
@@ -450,6 +471,7 @@ export const TERMS: Term[] = [
   },
   {
     id: 'nwog',
+    diagramId: 'nwog',
     term: 'New Week Opening Gap',
     abbr: 'NWOG',
     category: 'Sessions & Time',
@@ -465,12 +487,13 @@ export const TERMS: Term[] = [
     related: ['New Day Opening Gap', 'New Week Opening Gap', 'Fair Value Gap'],
   },
 
-  // ── AMD & Bias ────────────────────────────────────────────────────────────
+  // â”€â”€ AMD & Bias â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: 'amd',
+    diagramId: 'amd',
     term: 'AMD Cycle',
     category: 'AMD & Bias',
-    definition: 'Accumulation → Manipulation → Distribution. ICT\'s framework for understanding how smart money orchestrates price movement. Accumulation: institutions quietly build positions in a range. Manipulation: a false move (Judas swing) to trap retail traders and engineer liquidity. Distribution: the real directional move begins.',
+    definition: 'Accumulation â†’ Manipulation â†’ Distribution. ICT\'s framework for understanding how smart money orchestrates price movement. Accumulation: institutions quietly build positions in a range. Manipulation: a false move (Judas swing) to trap retail traders and engineer liquidity. Distribution: the real directional move begins.',
     related: ['Accumulation', 'Manipulation', 'Distribution', 'Judas Swing', 'Power of Three'],
   },
   {
@@ -482,20 +505,22 @@ export const TERMS: Term[] = [
   },
   {
     id: 'manipulation',
+    diagramId: 'manipulation',
     term: 'Manipulation',
     category: 'AMD & Bias',
-    definition: 'The engineered false move in the AMD cycle — designed to trap retail traders in the wrong direction and generate the liquidity needed for institutional distribution. The Judas swing and London sweep of the Asia range are classic manipulation phases. Manipulation is quickly reversed into the true direction.',
+    definition: 'The engineered false move in the AMD cycle â€” designed to trap retail traders in the wrong direction and generate the liquidity needed for institutional distribution. The Judas swing and London sweep of the Asia range are classic manipulation phases. Manipulation is quickly reversed into the true direction.',
     related: ['AMD Cycle', 'Judas Swing', 'Liquidity Sweep', 'Accumulation', 'Distribution'],
   },
   {
     id: 'distribution',
     term: 'Distribution',
     category: 'AMD & Bias',
-    definition: 'The true directional move in the AMD cycle — after accumulation and manipulation, institutions distribute their positions by driving price toward the draw on liquidity. Distribution is characterized by displacement and often forms the "C" leg of the Power of Three model.',
+    definition: 'The true directional move in the AMD cycle â€” after accumulation and manipulation, institutions distribute their positions by driving price toward the draw on liquidity. Distribution is characterized by displacement and often forms the "C" leg of the Power of Three model.',
     related: ['AMD Cycle', 'Accumulation', 'Manipulation', 'Power of Three', 'Draw on Liquidity'],
   },
   {
     id: 'judas-swing',
+    diagramId: 'judas-swing',
     term: 'Judas Swing',
     category: 'AMD & Bias',
     definition: 'The deceptive opening move during London or NY sessions that traps retail traders in the wrong direction before the real move begins. Named for its betrayal of apparent direction. The Judas swing sweeps liquidity on one side before reversing aggressively in the opposite direction.',
@@ -504,14 +529,16 @@ export const TERMS: Term[] = [
   },
   {
     id: 'power-of-three',
+    diagramId: 'power-of-three',
     term: 'Power of Three',
     abbr: 'Po3',
     category: 'AMD & Bias',
-    definition: 'ICT\'s three-phase price delivery model: A (accumulation/consolidation) → B (manipulation/false move) → C (distribution/true move). Applied across all timeframes. On a daily chart: Asia consolidates (A), London manipulates (B), NY distributes (C). Understanding Po3 allows traders to identify which phase price is in.',
+    definition: 'ICT\'s three-phase price delivery model: A (accumulation/consolidation) â†’ B (manipulation/false move) â†’ C (distribution/true move). Applied across all timeframes. On a daily chart: Asia consolidates (A), London manipulates (B), NY distributes (C). Understanding Po3 allows traders to identify which phase price is in.',
     related: ['AMD Cycle', 'Accumulation', 'Manipulation', 'Distribution', 'Kill Zones'],
   },
   {
     id: 'daily-bias',
+    diagramId: 'daily-bias',
     term: 'Daily Bias',
     category: 'AMD & Bias',
     definition: 'The expected directional tendency for the trading day, determined by analyzing HTF market structure, draw on liquidity, and the daily candle context. ICT determines daily bias before the session opens. A bullish daily bias means looking for buy setups during AM and PM kill zones; bearish means looking for shorts.',
@@ -521,7 +548,7 @@ export const TERMS: Term[] = [
     id: 'weekly-profile',
     term: 'Weekly Profile',
     category: 'AMD & Bias',
-    definition: 'The anticipated structure of the trading week based on HTF analysis. ICT identifies weekly profiles such as: Monday low for the week (bullish week — sell Monday, buy the rest), Monday high for the week (bearish week), or midweek reversal patterns. Weekly profiles help frame which days are likely to see highs and lows form.',
+    definition: 'The anticipated structure of the trading week based on HTF analysis. ICT identifies weekly profiles such as: Monday low for the week (bullish week â€” sell Monday, buy the rest), Monday high for the week (bearish week), or midweek reversal patterns. Weekly profiles help frame which days are likely to see highs and lows form.',
     related: ['Daily Bias', 'AMD Cycle', 'PWH / PWL', 'Draw on Liquidity'],
   },
   {
@@ -547,21 +574,22 @@ export const TERMS: Term[] = [
     related: ['Premium / Discount', 'Equilibrium', 'Fibonacci', 'PD Array'],
   },
 
-  // ── SMC & Models ──────────────────────────────────────────────────────────
+  // â”€â”€ SMC & Models â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: 'mtfa',
     term: 'Multiple Time Frame Analysis',
     abbr: 'MTFA',
     category: 'SMC & Models',
-    definition: 'The practice of analyzing price across multiple timeframes to build a complete picture before executing a trade. ICT hierarchy: Monthly/Weekly for macro bias → Daily/4H for swing context → 1H for execution zones → 15m/5m for entry refinement. Higher timeframes always take precedence over lower timeframes.',
+    definition: 'The practice of analyzing price across multiple timeframes to build a complete picture before executing a trade. ICT hierarchy: Monthly/Weekly for macro bias â†’ Daily/4H for swing context â†’ 1H for execution zones â†’ 15m/5m for entry refinement. Higher timeframes always take precedence over lower timeframes.',
     related: ['Daily Bias', 'Market Structure', 'Draw on Liquidity'],
   },
   {
     id: 'smt-divergence',
+    diagramId: 'smt-divergence',
     term: 'SMT Divergence',
     abbr: 'SMT',
     category: 'SMC & Models',
-    definition: 'Smart Money Technique Divergence — when two correlated markets (e.g., ES and NQ, or DXY and EUR/USD) fail to confirm each other\'s move. If ES makes a new high but NQ fails to — that divergence signals institutional non-participation and a potential reversal. SMT is a leading indicator of smart money positioning.',
+    definition: 'Smart Money Technique Divergence â€” when two correlated markets (e.g., ES and NQ, or DXY and EUR/USD) fail to confirm each other\'s move. If ES makes a new high but NQ fails to â€” that divergence signals institutional non-participation and a potential reversal. SMT is a leading indicator of smart money positioning.',
     example: 'ES sweeps a previous high, but NQ makes a lower high. This SMT divergence suggests the ES high is a stop hunt, not a genuine breakout.',
     related: ['Market Structure', 'Liquidity Sweep', 'Daily Bias'],
   },
@@ -577,7 +605,7 @@ export const TERMS: Term[] = [
     term: 'Rally Base Drop',
     abbr: 'RBD',
     category: 'SMC & Models',
-    definition: 'A three-phase price pattern: Rally (price moves up) → Base (price consolidates, forming an order block) → Drop (price falls sharply from the base). The base phase is where the bearish order block forms and is a key entry level on the return.',
+    definition: 'A three-phase price pattern: Rally (price moves up) â†’ Base (price consolidates, forming an order block) â†’ Drop (price falls sharply from the base). The base phase is where the bearish order block forms and is a key entry level on the return.',
     related: ['Rally Base Rally', 'Order Block', 'Displacement'],
   },
   {
@@ -585,14 +613,14 @@ export const TERMS: Term[] = [
     term: 'Rally Base Rally',
     abbr: 'RBR',
     category: 'SMC & Models',
-    definition: 'A bullish continuation pattern: Rally → Base (consolidation/pullback forming a bullish OB) → Rally (continuation). The base forms the bullish order block entry zone. ICT uses RBR structures to find continuation entries in trending markets.',
+    definition: 'A bullish continuation pattern: Rally â†’ Base (consolidation/pullback forming a bullish OB) â†’ Rally (continuation). The base forms the bullish order block entry zone. ICT uses RBR structures to find continuation entries in trending markets.',
     related: ['Rally Base Drop', 'Order Block', 'Displacement'],
   },
   {
     id: 'open-float',
     term: 'Opening Price',
     category: 'SMC & Models',
-    definition: 'The opening price of a session, day, week, or month. ICT treats opening prices as significant reference levels — particularly midnight open, NY open (9:30 AM), and the weekly open. Price frequently references these levels as support/resistance throughout the session.',
+    definition: 'The opening price of a session, day, week, or month. ICT treats opening prices as significant reference levels â€” particularly midnight open, NY open (9:30 AM), and the weekly open. Price frequently references these levels as support/resistance throughout the session.',
     related: ['New Day Opening Gap', 'Kill Zones', 'Daily Bias'],
   },
   {
@@ -600,7 +628,7 @@ export const TERMS: Term[] = [
     term: 'Consequent Encroachment',
     abbr: 'CE',
     category: 'SMC & Models',
-    definition: 'The 50% midpoint of a Fair Value Gap. ICT teaches that price often returns to at least the CE of an FVG before continuing. The CE is the primary entry target within an FVG — rather than the full gap, traders look for entries at the midpoint for better positioning.',
+    definition: 'The 50% midpoint of a Fair Value Gap. ICT teaches that price often returns to at least the CE of an FVG before continuing. The CE is the primary entry target within an FVG â€” rather than the full gap, traders look for entries at the midpoint for better positioning.',
     related: ['Fair Value Gap', 'Equilibrium', 'Rebalancing'],
   },
   {
@@ -609,6 +637,203 @@ export const TERMS: Term[] = [
     category: 'SMC & Models',
     definition: 'The expected range of price movement for a given session or timeframe based on historical volatility and institutional reference levels. ICT uses implied moves to set realistic profit targets and understand when a move is overextended.',
     related: ['Daily Bias', 'Kill Zones', 'Draw on Liquidity'],
+  },
+
+  // â”€â”€ 25 New Terms â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  {
+    id: 'irl-erl',
+    term: 'Internal / External Range Liquidity',
+    abbr: 'IRL / ERL',
+    category: 'Liquidity',
+    diagramId: 'irl-erl',
+    definition: 'Internal Range Liquidity (IRL) refers to liquidity pools within the current dealing range â€” equal highs, equal lows, and FVGs between the swing high and swing low. External Range Liquidity (ERL) refers to liquidity beyond the swing structure â€” previous swing highs and lows outside the current range. Price delivers from IRL to ERL and vice versa.',
+    example: 'Price is in a range with EQH at the top (IRL). Once it sweeps the EQH, it targets the External High above (ERL).',
+    related: ['Draw on Liquidity', 'Equal Highs', 'Equal Lows', 'Dealing Range'],
+  },
+  {
+    id: 'market-maker-buy',
+    term: 'Market Maker Buy Model',
+    category: 'SMC & Models',
+    diagramId: 'market-maker-buy',
+    definition: 'ICT\'s bullish delivery sequence: 1) Consolidation phase (Asia range), 2) Judas swing downward to sweep sell-side liquidity (London manipulation), 3) Market structure shift bullish with displacement, 4) True rally targeting buy-side liquidity above (NY distribution). The entire setup is engineered to accumulate long positions at discounted prices.',
+    example: 'Asia consolidates. London drops below Asian low taking stops. NY session reverses bullishly, creates MSS, rallies all day to previous week high.',
+    related: ['Market Maker Sell Model', 'AMD Cycle', 'Judas Swing', 'Power of Three'],
+  },
+  {
+    id: 'market-maker-sell',
+    term: 'Market Maker Sell Model',
+    category: 'SMC & Models',
+    diagramId: 'market-maker-sell',
+    definition: 'ICT\'s bearish delivery sequence: 1) Consolidation phase, 2) Judas swing upward sweeping buy-side liquidity, 3) Market structure shift bearish with downside displacement, 4) True decline targeting sell-side liquidity below. Engineered to distribute short positions at premium prices after trapping retail longs.',
+    example: 'Asia consolidates. London rallies above Asian high, trapping breakout buyers. NY reverses bearishly and sells off to the week\'s low.',
+    related: ['Market Maker Buy Model', 'AMD Cycle', 'Judas Swing', 'Power of Three'],
+  },
+  {
+    id: 'retracement',
+    term: 'Retracement',
+    category: 'Price Delivery',
+    diagramId: 'retracement',
+    definition: 'A temporary price move counter to the prevailing trend direction, typically into a premium or discount zone, before continuation. ICT expects retracements into OTE (61.8â€“79% Fibonacci), Fair Value Gaps, or Order Blocks before the next impulsive leg. A retracement is not a reversal â€” it is a pullback that provides institutional entry.',
+    related: ['Optimal Trade Entry', 'Fair Value Gap', 'Order Block', 'Displacement'],
+  },
+  {
+    id: 'turtle-soup',
+    term: 'Turtle Soup',
+    category: 'SMC & Models',
+    diagramId: 'turtle-soup',
+    definition: 'A reversal setup that triggers when price briefly breaks a 20-period high or low (targeting trend-following stops), then immediately reverses in the opposite direction. Named after the Turtle Trading system\'s 20-day breakout rules. ICT uses this as a stop-hunt signal â€” when the breakout fails with displacement, it confirms the reversal.',
+    example: 'Price breaks below the 20-day low by a few ticks, triggers stop orders, then closes back above the low with a strong bullish candle â€” Turtle Soup long setup.',
+    related: ['Stop Hunt', 'Liquidity Sweep', 'Market Structure Shift'],
+  },
+  {
+    id: 'cbdr',
+    term: 'Central Bank Dealers Range',
+    abbr: 'CBDR',
+    category: 'Sessions & Time',
+    diagramId: 'cbdr',
+    definition: 'The price range established between 2:00 AM and 5:00 AM EST â€” the window before New York futures open. The CBDR high and low are key reference levels. A break above the CBDR high after 5AM is bullish; below the low is bearish. ICT uses the CBDR to frame the directional bias for the NY session.',
+    related: ['Kill Zones', 'New York AM Kill Zone', 'Asia Range', 'Daily Bias'],
+  },
+  {
+    id: 'liquidity-run',
+    term: 'Liquidity Run',
+    category: 'Liquidity',
+    diagramId: 'liquidity-run',
+    definition: 'A sustained directional move that systematically sweeps multiple liquidity pools in sequence. Unlike a single liquidity sweep, a liquidity run is a multi-leg move where price takes one pool of stops, pauses briefly, then continues to the next. Used to identify when a trend has institutional backing and is likely to continue to the next significant liquidity level.',
+    related: ['Liquidity Sweep', 'Buy Side Liquidity', 'Sell Side Liquidity', 'Draw on Liquidity'],
+  },
+  {
+    id: 'expansion',
+    term: 'Expansion',
+    category: 'Price Delivery',
+    definition: 'The phase of price delivery characterized by impulsive, one-directional movement away from a consolidation or retracement. Expansion creates Fair Value Gaps, breaks structure, and represents the "distribution" phase of the AMD cycle. High momentum, low retracement, strong close. Opposite of consolidation.',
+    related: ['Consolidation', 'Displacement', 'AMD Cycle', 'Fair Value Gap'],
+  },
+  {
+    id: 'consolidation',
+    term: 'Consolidation',
+    category: 'Price Delivery',
+    definition: 'A period of balanced, range-bound price action where neither buyers nor sellers dominate. Consolidation is the "accumulation" phase of the AMD cycle. ICT traders avoid trading inside consolidation â€” they wait for the expansion that follows. Consolidation creates the range that will be swept in the manipulation phase.',
+    related: ['Expansion', 'AMD Cycle', 'Accumulation', 'Dealing Range'],
+  },
+  {
+    id: 'smart-money',
+    term: 'Smart Money',
+    category: 'SMC & Models',
+    definition: 'ICT\'s term for institutional traders, central banks, hedge funds, and large banks who move markets with their order flow. Smart money has access to information, capital, and execution capabilities that retail traders do not. The entire ICT methodology is built on the premise of understanding and following smart money positioning rather than fighting it.',
+    related: ['Dumb Money', 'Order Flow', 'Liquidity', 'IPDA'],
+  },
+  {
+    id: 'dumb-money',
+    term: 'Dumb Money (Retail)',
+    category: 'SMC & Models',
+    definition: 'ICT\'s term for retail traders who consistently lose because they trade at predictable, obvious levels â€” placing stops at swing highs/lows, buying breakouts, selling breakdowns. Their predictability is exploited by smart money. Understanding dumb money behavior helps ICT traders anticipate where stops are clustered and where manipulation will occur.',
+    related: ['Smart Money', 'Stop Hunt', 'Liquidity', 'Inducement'],
+  },
+  {
+    id: 'engineered-liquidity',
+    term: 'Engineered Liquidity',
+    category: 'Liquidity',
+    definition: 'A deliberate institutional maneuver to create conditions where retail traders will place stops in a predictable location, which can then be swept. Engineered liquidity is the purposeful construction of a price pattern (equal highs, a false breakout, an obvious level) designed to attract retail orders that institutions can trade against.',
+    related: ['Inducement', 'Stop Hunt', 'Judas Swing', 'Smart Money'],
+  },
+  {
+    id: 'order-flow',
+    term: 'Order Flow',
+    category: 'SMC & Models',
+    diagramId: 'order-flow',
+    definition: 'The sequence, direction, and size of orders entering the market. ICT teaches that understanding order flow â€” specifically institutional order flow â€” reveals market intent before price moves. When institutional buy orders exceed retail sell orders at a level, price will move up regardless of what retail traders believe about support/resistance.',
+    related: ['Smart Money', 'Displacement', 'Market Structure Shift', 'Liquidity'],
+  },
+  {
+    id: 'flip',
+    term: 'Flip (Support / Resistance Flip)',
+    category: 'SMC & Models',
+    diagramId: 'flip',
+    definition: 'When a previous support level, after being broken, becomes a resistance level â€” or vice versa. In ICT, a flip occurs when price violates an Order Block or key level, converting its polarity. A bullish OB that fails (is broken to the downside) becomes a Breaker Block that now acts as resistance. Flips are key reversal entry zones.',
+    related: ['Breaker Block', 'Order Block', 'Break of Structure', 'Market Structure'],
+  },
+  {
+    id: 'time-and-price',
+    term: 'Time and Price',
+    category: 'AMD & Bias',
+    definition: 'ICT\'s two primary variables for anticipating market movement. Time refers to when setups should occur (kill zones, macros, session opens). Price refers to where price should trade (OTE, FVGs, order blocks). A valid ICT setup requires BOTH the right price level AND the right time window â€” either alone is insufficient for high-probability entries.',
+    related: ['Kill Zones', 'Macro', 'Optimal Trade Entry', 'Daily Bias'],
+  },
+  {
+    id: 'htf-narrative',
+    term: 'HTF Narrative',
+    category: 'SMC & Models',
+    definition: 'The overall directional story told by higher timeframe analysis (weekly, daily, 4-hour charts). The HTF narrative determines which direction to trade on lower timeframes. If the daily chart is bearish (making LH-LL), the HTF narrative is bearish â€” only look for short setups on the 15m and 5m. All trades should align with the HTF narrative.',
+    related: ['MTFA', 'Daily Bias', 'Weekly Profile', 'Market Structure'],
+  },
+  {
+    id: 'price-leg',
+    term: 'Price Leg',
+    category: 'Market Structure',
+    definition: 'A single directional segment of price movement between two swing points. A bullish price leg moves from a swing low to the next swing high. Legs are used to measure the proportionality of price delivery and to apply Fibonacci tools. Institutional price legs tend to be clean, impulsive, and followed by measured retracements.',
+    related: ['Swing High', 'Swing Low', 'Retracement', 'Fibonacci'],
+  },
+  {
+    id: 'london-close',
+    term: 'London Close',
+    category: 'Sessions & Time',
+    definition: 'The 11:00 AMâ€“12:00 PM EST window when the London session officially closes. This often creates a brief counter-trend move as European institutions close positions before NY lunch. ICT warns against trading London close â€” it is a low-probability window characterized by choppy, reversing price action.',
+    related: ['London Kill Zone', 'New York AM Kill Zone', 'NY Lunch', 'Kill Zones'],
+  },
+  {
+    id: 'midnight-open',
+    term: 'Midnight Open',
+    category: 'Sessions & Time',
+    definition: 'The price level at exactly 12:00 AM (midnight) EST â€” the reference point ICT uses to define the "true" opening price of each trading day in futures. The midnight open acts as a magnet for price and a reference for determining whether the current day is trading premium or discount relative to where it opened.',
+    related: ['True Day', 'New Day Opening Gap', 'Daily Bias', 'Opening Range Gap'],
+  },
+  {
+    id: 'seasonal-tendencies',
+    term: 'Seasonal Tendencies',
+    category: 'AMD & Bias',
+    definition: 'ICT\'s framework for anticipated directional bias based on calendar quarters and months. Historically, Q1 (Jan-Mar) tends to see significant directional moves, Q2 is often a reversal quarter, Q3 can be choppy, and Q4 sees year-end positioning. Monthly tendencies include typical turning points at the beginning and end of months.',
+    related: ['Quarterly Shift', 'IPDA', 'Weekly Profile', 'Daily Bias'],
+  },
+  {
+    id: 'adr',
+    term: 'Average Daily Range',
+    abbr: 'ADR',
+    category: 'Sessions & Time',
+    definition: 'The average high-to-low range of a market over a defined period (typically 5-20 days). ICT uses the ADR to estimate how far price is likely to travel in a session and set realistic profit targets. If the ADR for ES is 30 points and price has already moved 25 points, the remaining expected range is limited â€” take profits.',
+    related: ['Daily Bias', 'CBDR', 'Draw on Liquidity', 'Implied Move'],
+  },
+  {
+    id: 'consequent-encroachment',
+    term: 'Consequent Encroachment',
+    abbr: 'CE',
+    category: 'Price Delivery',
+    diagramId: 'consequent-encroachment',
+    definition: 'The exact 50% midpoint of a Fair Value Gap. Rather than targeting the full FVG, ICT teaches entering at the CE for tighter stops and better positioning. Price commonly reaches the CE of an FVG before continuing â€” the CE is where orders are most concentrated within the gap.',
+    example: 'FVG spans from 4500 to 4510. CE is 4505. Enter long at 4505 rather than waiting for the full gap fill to 4500.',
+    related: ['Fair Value Gap', 'Equilibrium', 'Rebalancing', 'Optimal Trade Entry'],
+  },
+  {
+    id: 'low-resistance-liquidity-run',
+    term: 'Low Resistance Liquidity Run',
+    abbr: 'LRLR',
+    category: 'Liquidity',
+    definition: 'A rapid, nearly uninterrupted price move through an area with very few opposing orders â€” like an area of imbalance or a void. Price moves through LRLR zones quickly with minimal pullback. Identifying LRLR zones helps traders understand why price sometimes accelerates through certain areas without pausing.',
+    related: ['Liquidity Run', 'Liquidity Void', 'Fair Value Gap', 'Displacement'],
+  },
+  {
+    id: 'daily-profiles',
+    term: 'Daily Profiles',
+    category: 'AMD & Bias',
+    definition: 'Specific repeating templates for how a trading day is structured based on the weekly bias. ICT identifies profiles such as: Classic (Monday low of week), Seek and Destroy (double stop hunt), Consolidation day (no directional bias), and Reversal day (prior trend ends). Recognizing which profile is developing helps traders avoid being on the wrong side.',
+    related: ['Daily Bias', 'Weekly Profile', 'AMD Cycle', 'Power of Three'],
+  },
+  {
+    id: 'anchor-point',
+    term: 'Anchor Point',
+    category: 'Market Structure',
+    definition: 'A significant price level used as the starting reference for Fibonacci, premium/discount, and structural analysis. ICT anchors Fibonacci from the most recent significant swing high or low created by a displacement move. Choosing the correct anchor point is critical â€” wrong anchoring gives inaccurate OTE zones and misframes the trade.',
+    related: ['Fibonacci', 'Optimal Trade Entry', 'Displacement', 'Swing High'],
   },
 ]
 
@@ -628,3 +853,4 @@ export function searchTerms(query: string): Term[] {
     t.category.toLowerCase().includes(q)
   )
 }
+

@@ -3,6 +3,7 @@ import {
   TERMS, CATEGORIES, CATEGORY_COLORS, searchTerms,
   ALL_LETTERS, type Term, type Category,
 } from './terms'
+import { DIAGRAMS } from './diagrams'
 
 // ── Term Card ─────────────────────────────────────────────────────────────────
 function TermCard({ term, onRelatedClick, highlight }: {
@@ -69,6 +70,12 @@ function TermCard({ term, onRelatedClick, highlight }: {
         {/* Expanded content */}
         {expanded && (
           <div className="mt-4 space-y-4 animate-fade-up">
+            {/* Diagram */}
+            {term.diagramId && DIAGRAMS[term.diagramId] && (
+              <div className="rounded-xl overflow-hidden border border-slate-800/60 mt-3">
+                {DIAGRAMS[term.diagramId]()}
+              </div>
+            )}
             {term.example && (
               <div className="px-3 py-2.5 rounded-xl text-[12px] text-slate-400 leading-relaxed"
                 style={{ background: `${color}08`, border: `1px solid ${color}18` }}>
