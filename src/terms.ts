@@ -37,6 +37,7 @@ export const TERMS: Term[] = [
     category: 'Market Structure',
     diagramId: 'market-structure',
     definition: 'The framework of swing highs and swing lows that defines the directional bias of price. Bullish market structure consists of higher highs and higher lows. Bearish market structure consists of lower lows and lower highs. ICT reads market structure across multiple timeframes to determine institutional intent.',
+    example: 'Daily NQ: making higher highs and higher lows — bullish structure. The last swing low (HL) is the key reference. If price closes below it, structure shifts to bearish and you flip to short setups.',
     related: ['Swing High', 'Swing Low', 'Break of Structure', 'Change of Character', 'MTFA'],
   },
   {
@@ -46,7 +47,7 @@ export const TERMS: Term[] = [
     category: 'Market Structure',
     diagramId: 'break-of-structure',
     definition: 'When price breaks a previous swing high (in an uptrend) or swing low (in a downtrend), confirming continuation of the current trend. A BOS is a structural continuation signal — price is expanding in the direction of the prevailing higher timeframe bias.',
-    example: 'In a bullish trend, price forms HH-HL-HH. Each break above the previous swing high is a BOS confirming bullish structure.',
+    example: 'Uptrend making HH-HL-HH. Price rallies above the most recent swing high — that is the BOS confirming continuation. Stay long on the next pullback into discount.',
     related: ['Change of Character', 'Market Structure', 'Swing High', 'Swing Low'],
   },
   {
@@ -56,7 +57,7 @@ export const TERMS: Term[] = [
     category: 'Market Structure',
     diagramId: 'change-of-character',
     definition: 'A break of the most recent swing low in a bullish trend (or swing high in a bearish trend) that signals a potential reversal. Unlike a BOS which confirms continuation, a ChoCH suggests the market may be shifting direction. Used to identify the beginning of a new phase.',
-    example: 'Price is making HH-HL. Then price breaks below the last HL — this is a ChoCH signaling possible bearish shift.',
+    example: 'Price is in an uptrend making HH-HL. A candle closes below the most recent HL — that close is the ChoCH. Begin looking for short setups and stop entering longs.',
     related: ['Break of Structure', 'Market Structure', 'Market Structure Shift', 'Displacement'],
   },
   {
@@ -66,6 +67,7 @@ export const TERMS: Term[] = [
     category: 'Market Structure',
     diagramId: 'market-structure-shift',
     definition: 'A decisive break of a significant swing point accompanied by displacement (a strong impulsive move), indicating that institutional players have stepped in and shifted market direction. More significant than a standard ChoCH because of the velocity and magnitude of the move.',
+    example: 'After a liquidity sweep, a single 5m candle drops 120 points — 3× the average candle size — and closes near its low, breaking the prior swing low cleanly. That aggressive candle is the MSS, signaling urgent institutional selling.',
     related: ['Change of Character', 'Displacement', 'Order Block', 'Liquidity Sweep'],
   },
   {
@@ -74,6 +76,7 @@ export const TERMS: Term[] = [
     category: 'Market Structure',
     diagramId: 'swing-high',
     definition: 'A candle whose high is higher than the highs of the candles immediately to its left and right. Swing highs form the upper boundary of market structure and act as areas where buy side liquidity rests above. ICT uses the fractal definition: a confirmed swing high requires at least two lower highs on each side.',
+    example: 'Candle sequence: lower-high, lower-high, HIGHEST HIGH, lower-high, lower-high. The center candle\'s high is the fractal swing high — buy stops rest just above it.',
     related: ['Swing Low', 'Buy Side Liquidity', 'Market Structure', 'Equal Highs', 'Fractal'],
   },
   {
@@ -82,6 +85,7 @@ export const TERMS: Term[] = [
     category: 'Market Structure',
     diagramId: 'swing-low',
     definition: 'A candle whose low is lower than the lows of the candles immediately to its left and right. Swing lows form the lower boundary of market structure and act as areas where sell side liquidity rests below. A confirmed swing low requires at least two higher lows on each side.',
+    example: 'Candle sequence: higher-low, higher-low, LOWEST LOW, higher-low, higher-low. The center candle\'s low is the fractal swing low — sell stops rest just below it.',
     related: ['Swing High', 'Sell Side Liquidity', 'Market Structure', 'Equal Lows', 'Fractal'],
   },
   {
@@ -91,6 +95,7 @@ export const TERMS: Term[] = [
     category: 'Market Structure',
     diagramId: 'equal-highs',
     definition: 'Two or more swing highs at approximately the same price level. Equal highs are a strong liquidity magnet because retail traders place buy stops above them expecting a breakout. ICT expects price to sweep above EQH before reversing or continuing.',
+    example: 'Three consecutive sessions all top out at 4510. Buy stops build above 4510 each day. ICT expects a spike to 4512+ to sweep all those stops before a reversal lower.',
     related: ['Equal Lows', 'Buy Side Liquidity', 'Liquidity Sweep', 'Relative Equal Highs'],
   },
   {
@@ -100,6 +105,7 @@ export const TERMS: Term[] = [
     category: 'Market Structure',
     diagramId: 'equal-lows',
     definition: 'Two or more swing lows at approximately the same price level. Equal lows pool sell side liquidity below them as retail traders place sell stops there. Price is expected to sweep below EQL to run those stops before moving higher.',
+    example: 'Two swing lows both bottom at 4480. Sell stops cluster below 4480. A wick to 4478 that closes back above 4480 is the SSL sweep — signal to look for longs.',
     related: ['Equal Highs', 'Sell Side Liquidity', 'Liquidity Sweep', 'Relative Equal Lows'],
   },
   {
@@ -126,6 +132,7 @@ export const TERMS: Term[] = [
     category: 'Market Structure',
     diagramId: 'price-leg',
     definition: 'A single directional segment of price movement between two swing points. A bullish price leg moves from a swing low to the next swing high. Legs are used to measure the proportionality of price delivery and to apply Fibonacci tools. Institutional price legs tend to be clean, impulsive, and followed by measured retracements.',
+    example: 'Price sweeps SSL at 18,200 then displaces to 18,380 — a 180-point leg. Apply Fibonacci from 18,200 to 18,380. OTE zone sits at 18,269–18,291 (61.8%–79%). That is where to look for the long entry.',
     related: ['Swing High', 'Swing Low', 'Retracement', 'Fibonacci'],
   },
   {
@@ -134,6 +141,7 @@ export const TERMS: Term[] = [
     category: 'Market Structure',
     diagramId: 'anchor-point',
     definition: 'A significant price level used as the starting reference for Fibonacci, premium/discount, and structural analysis. ICT anchors Fibonacci from the most recent significant swing high or low created by a displacement move. Choosing the correct anchor point is critical — wrong anchoring gives inaccurate OTE zones and misframes the trade.',
+    example: 'A displacement candle creates a swing low at 4480 before driving up. The 4480 low is the anchor point — Fibonacci runs from 4480 to the resulting swing high. Wrong anchor (using any prior low instead) gives inaccurate OTE zones.',
     related: ['Fibonacci', 'Optimal Trade Entry', 'Displacement', 'Swing High'],
   },
   {
@@ -142,6 +150,7 @@ export const TERMS: Term[] = [
     category: 'Market Structure',
     diagramId: 'price-discovery',
     definition: 'When price moves beyond all previous reference highs or lows into territory where no prior trading has occurred. Price discovery moves often accelerate quickly due to the absence of opposing orders — there is a low resistance liquidity run into new territory. ICT views price discovery as a signal of institutional directional conviction.',
+    example: 'NQ breaks above its all-time high and enters price discovery. With no prior resistance above, the next 200 points travel in under 30 minutes — zero opposing orders in undiscovered territory.',
     related: ['Low Resistance Liquidity Run', 'All Time High', 'Liquidity Void', 'Displacement'],
   },
   {
@@ -150,6 +159,7 @@ export const TERMS: Term[] = [
     category: 'Market Structure',
     diagramId: 'failure-swing',
     definition: 'When price fails to create a new swing high (in an uptrend) or new swing low (in a downtrend), signaling structural weakness before an official structure break occurs. A failure swing is an early warning — momentum is deteriorating before the official ChoCH or BOS forms. Often combined with SMT divergence for high-probability reversal signals.',
+    example: 'Price is in a bull run. The new attempted high only reaches 4508 vs the prior swing high of 4520 — a failure swing. This lower high warns of a structural shift before the official ChoCH forms. Look for shorts.',
     related: ['Change of Character', 'SMT Divergence', 'Market Structure', 'Swing High'],
   },
   {
@@ -168,6 +178,7 @@ export const TERMS: Term[] = [
     category: 'Market Structure',
     diagramId: 'msb',
     definition: 'An aggressive, often gapped break of a significant structural level accompanied by a large displacement candle. Unlike a standard BOS which merely closes beyond a level, an MSB breaks with such force that it often creates a Fair Value Gap at the break point itself. MSBs signal institutional urgency and carry more weight than typical structure breaks.',
+    example: 'NQ consolidates near a low. A single 5m candle drops 150 points, breaking the prior day\'s low and leaving a large FVG in its wake. The gap itself is the MSB signature — pure institutional urgency.',
     related: ['Break of Structure', 'Displacement', 'Fair Value Gap', 'Market Structure Shift'],
   },
 
@@ -178,6 +189,7 @@ export const TERMS: Term[] = [
     category: 'Liquidity',
     diagramId: 'liquidity',
     definition: 'Orders resting in the market — specifically stop loss orders and limit orders that have not been triggered yet. ICT views price delivery as a process of seeking and collecting liquidity. Institutions need massive order flow to execute their positions, so price gravitates toward areas where many orders are clustered.',
+    example: 'The prior session high has buy stops above it. Price is drawn to that level because institutions need to sell into those buy orders. The stops ARE the liquidity — they are the reason price goes there.',
     related: ['Buy Side Liquidity', 'Sell Side Liquidity', 'Liquidity Pool', 'Stop Hunt'],
   },
   {
@@ -206,6 +218,7 @@ export const TERMS: Term[] = [
     category: 'Liquidity',
     diagramId: 'liquidity-pool',
     definition: 'A concentration of resting orders at a specific price level or zone. The larger the pool (more stop orders clustered), the stronger the draw on price. Identified by obvious swing points, equal highs/lows, and areas where many retail traders would logically place stops.',
+    example: 'Three sessions all bottom at 18,400 — a clear pool. Each failed attempt adds more sell stops below. When price finally spikes to 18,392, it runs the entire pool in one move before reversing.',
     related: ['Buy Side Liquidity', 'Sell Side Liquidity', 'Draw on Liquidity'],
   },
   {
@@ -223,6 +236,7 @@ export const TERMS: Term[] = [
     category: 'Liquidity',
     diagramId: 'stop-hunt',
     definition: 'A deliberate engineered move by smart money to trigger retail stop loss orders clustered at predictable levels. Once stops are triggered, the engineered move reverses and the real directional move begins. Stop hunts are not random — they are a systematic feature of how smart money accumulates or distributes positions.',
+    example: 'A clear low at 4490 has retail long stops at 4488. A spike to 4487 triggers every stop, fills institutional buy orders, then price immediately reverses to 4510. That spike was the stop hunt.',
     related: ['Liquidity Sweep', 'Judas Swing', 'Liquidity Pool', 'Engineered Liquidity'],
   },
   {
@@ -241,6 +255,7 @@ export const TERMS: Term[] = [
     category: 'Liquidity',
     diagramId: 'liquidity-void',
     definition: 'A price area that was traversed so quickly that very little trading occurred there — essentially a void of orders. Price tends to return to fill these voids as the market seeks to create two-sided trading at every level. Similar to a Fair Value Gap but used in a broader context.',
+    example: 'Price drops from 18,500 to 18,200 in 3 candles with no pause. The 18,200–18,500 zone is a void — price moved through it so fast two-sided trading never occurred. Expect a return fill of that zone within the session.',
     related: ['Fair Value Gap', 'Imbalance', 'Rebalancing', 'Low Resistance Liquidity Run'],
   },
   {
@@ -268,6 +283,7 @@ export const TERMS: Term[] = [
     category: 'Liquidity',
     diagramId: 'liquidity-run',
     definition: 'A sustained directional move that systematically sweeps multiple liquidity pools in sequence. Unlike a single liquidity sweep, a liquidity run is a multi-leg move where price takes one pool of stops, pauses briefly, then continues to the next. Used to identify when a trend has institutional backing.',
+    example: 'In a bear trend, price sweeps EQL-1 at 4480, pauses briefly, sweeps EQL-2 at 4460, pauses, then sweeps EQL-3 at 4440. Each sweep is systematic — a liquidity run taking pools in sequence.',
     related: ['Liquidity Sweep', 'Buy Side Liquidity', 'Sell Side Liquidity', 'Draw on Liquidity'],
   },
   {
@@ -276,6 +292,7 @@ export const TERMS: Term[] = [
     category: 'Liquidity',
     diagramId: 'engineered-liquidity',
     definition: 'A deliberate institutional maneuver to create conditions where retail traders will place stops in a predictable location, which can then be swept. Engineered liquidity is the purposeful construction of a price pattern (equal highs, a false breakout, an obvious level) designed to attract retail orders that institutions can trade against.',
+    example: 'Price builds obvious equal highs at 4510 over 3 hours. Retail sees resistance and shorts it. ICT recognizes the equal highs as engineered BSL — price will spike above 4510, sweep the stops, then reverse sharply.',
     related: ['Inducement', 'Stop Hunt', 'Judas Swing', 'Smart Money'],
   },
   {
@@ -285,6 +302,7 @@ export const TERMS: Term[] = [
     category: 'Liquidity',
     diagramId: 'low-resistance-liquidity-run',
     definition: 'A rapid, nearly uninterrupted price move through an area with very few opposing orders — like an area of imbalance or a void. Price moves through LRLR zones quickly with minimal pullback. Identifying LRLR zones helps traders understand why price sometimes accelerates through certain areas without pausing.',
+    example: 'After breaking above the prior all-time high, price enters an LRLR zone with no prior structure above. The next 300 points travel in 20 minutes with no significant pullback — pure low-resistance delivery.',
     related: ['Liquidity Run', 'Liquidity Void', 'Fair Value Gap', 'Displacement'],
   },
   {
@@ -311,6 +329,7 @@ export const TERMS: Term[] = [
     category: 'Liquidity',
     diagramId: 'raid',
     definition: 'A deliberate, aggressive institutional move specifically designed to quickly breach a major liquidity level, collect the available stop orders, then reverse. Unlike a gradual stop hunt, a raid is swift and decisive — a large candle that pierces through multiple stop clusters before violently reversing direction.',
+    example: 'A single 5m candle spikes 40 points through the month\'s high and immediately reverses 60 points in the next two candles. The speed and reversal magnitude identify it as an institutional raid rather than a genuine breakout.',
     related: ['Stop Hunt', 'Liquidity Sweep', 'Liquidity Grab', 'Displacement'],
   },
   {
@@ -341,6 +360,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'sibi',
     definition: 'A bearish Fair Value Gap — a downside imbalance where the high of the third candle does not reach the low of the first candle. Price left an inefficiency on the way down. These act as resistance when price returns to them from below and are used as entry areas in bearish scenarios.',
+    example: 'Candle 1 high: 4502. Large bearish displacement candle. Candle 3 high: 4497. The 4497–4502 gap is the SIBI — bearish FVG. Price returning to 4497–4502 from below encounters this as resistance.',
     related: ['Fair Value Gap', 'BISI', 'Order Block', 'Displacement'],
   },
   {
@@ -350,6 +370,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'bisi',
     definition: 'A bullish Fair Value Gap — an upside imbalance where the low of the third candle does not reach the high of the first candle. Price left an inefficiency on the way up. These act as support when price returns from above and are entry areas in bullish scenarios.',
+    example: 'Candle 1 low: 4498. Large bullish displacement. Candle 3 low: 4505. The 4498–4505 gap is the BISI — bullish FVG. Price returning from above to 4500 finds this zone as support.',
     related: ['Fair Value Gap', 'SIBI', 'Order Block', 'Displacement'],
   },
   {
@@ -367,6 +388,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'imbalance',
     definition: 'Any area where price moved so quickly that only one side of the market (buyers or sellers) participated. Imbalances represent inefficiencies that the market tends to revisit to allow the other side to trade. All Fair Value Gaps are imbalances, but not all imbalances are FVGs.',
+    example: 'ES gaps up 10 points at the open, leaving a void between yesterday\'s high (4500) and today\'s open (4510). That 10-point gap is an imbalance — expect a pullback to fill it before any sustained directional move.',
     related: ['Fair Value Gap', 'Liquidity Void', 'Rebalancing', 'SIBI', 'BISI'],
   },
   {
@@ -375,6 +397,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'rebalancing',
     definition: 'When price returns to fill an imbalance or FVG, allowing two-sided trading to occur at that level. Rebalancing is normal market behavior and is often where ICT traders look for entries — price returns to the imbalance, fills it, then continues in the original direction.',
+    example: 'A bullish FVG sits at 18,300–18,320. Price rallied to 18,450 then retraced back to 18,310 — entering the gap for rebalancing. The CE at 18,310 is the highest-probability long entry.',
     related: ['Fair Value Gap', 'Imbalance', 'Optimal Trade Entry', 'Consequent Encroachment'],
   },
   {
@@ -383,6 +406,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'premium-discount',
     definition: 'The concept of price being expensive (premium) or cheap (discount) relative to a defined range. Above the 50% equilibrium of a swing range is premium — where sellers look to sell. Below 50% is discount — where buyers look to buy. ICT buys in discount and sells in premium.',
+    example: 'Range: swing low 4450 to swing high 4550. Equilibrium at 4500. Price at 4540 is in premium — avoid longs here. Price at 4462 is in deep discount — ICT looks for long setups.',
     related: ['Equilibrium', 'Optimal Trade Entry', 'PD Array', 'Fibonacci'],
   },
   {
@@ -392,6 +416,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'equilibrium',
     definition: 'The 50% midpoint of any defined price range (swing high to swing low). Equilibrium represents fair value. ICT looks to buy below EQ (in discount) and sell above EQ (in premium). Often used with the 50% level of a Fibonacci retracement.',
+    example: 'Swing low: 18,000. Swing high: 18,400. Equilibrium = 18,200 (50%). Price at 18,350 is in premium — avoid longs. Price retracing to 18,180 is in discount — watch for long setups at the next PD array.',
     related: ['Premium / Discount', 'Fibonacci', 'Optimal Trade Entry', 'Dealing Range'],
   },
   {
@@ -410,6 +435,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'fibonacci',
     definition: 'ICT uses specific Fibonacci levels to identify premium/discount zones and optimal entries. Key levels: 50% (equilibrium), 61.8% (OTE entry), 70.5%, 79% (deep OTE), 88.6% (last level before invalidation). Applied from swing low to swing high in bullish moves, and swing high to swing low in bearish moves.',
+    example: 'Bullish displacement from 18,000 to 18,200 (200-point leg). 61.8% retracement = 18,076. 79% = 18,042. The OTE zone is 18,042–18,076 — Fibonacci applied from the displacement swing low to the swing high.',
     related: ['Optimal Trade Entry', 'Premium / Discount', 'Equilibrium', 'Anchor Point'],
   },
   {
@@ -419,6 +445,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'pd-array',
     definition: 'Premium / Discount Array — the hierarchy of ICT tools used to determine where price is likely to react. From highest to lowest significance: Old Highs/Lows, Liquidity Voids, Fair Value Gaps, Volume Imbalances, Order Blocks, Breaker Blocks, Mitigation Blocks, Propulsion Blocks, Rejection Blocks.',
+    example: 'At 18,300: a bullish FVG (18,290–18,310), a bullish OB (18,295–18,305), and the 62% Fibonacci retracement all land at the same zone. Three PD array tools stacked = high-probability POI.',
     related: ['Fair Value Gap', 'Order Block', 'Breaker Block', 'Premium / Discount'],
   },
   {
@@ -427,6 +454,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'volume-imbalance',
     definition: 'Similar to a Fair Value Gap but occurs within a single candle — the close of one candle and the open of the next candle leave a gap. Volume imbalances are less significant than FVGs but still act as potential support/resistance levels where price may pause or react.',
+    example: 'A 3:45 PM candle closes at 4500.00. The next candle opens at 4500.75. The 0.75-point gap between close and open is a volume imbalance — a minor inefficiency price may briefly return to fill.',
     related: ['Fair Value Gap', 'Imbalance', 'PD Array'],
   },
   {
@@ -436,6 +464,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'balanced-price-range',
     definition: 'When a bullish FVG and a bearish FVG overlap, creating a zone where both sides of the market have been represented. The overlap area is the balanced price range — a high-probability reaction zone. Price often reacts sharply from BPRs.',
+    example: 'A bearish SIBI spans 4500–4510. A bullish BISI spans 4505–4515. The 4505–4510 overlap is the BPR — both buyer and seller imbalances converge here, making it the highest-probability reaction zone.',
     related: ['Fair Value Gap', 'SIBI', 'BISI', 'Imbalance'],
   },
   {
@@ -444,6 +473,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'retracement',
     definition: 'A temporary price move counter to the prevailing trend direction, typically into a premium or discount zone, before continuation. ICT expects retracements into OTE (61.8–79% Fibonacci), Fair Value Gaps, or Order Blocks before the next impulsive leg. A retracement is not a reversal — it is a pullback that provides institutional entry.',
+    example: 'After a bullish expansion from 18,000 to 18,300, price pulls back to 18,150 — entering the OTE zone. ICT looks for bullish FVGs or OBs within 18,040–18,110 for the continuation entry.',
     related: ['Optimal Trade Entry', 'Fair Value Gap', 'Order Block', 'Displacement'],
   },
   {
@@ -452,6 +482,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'expansion',
     definition: 'The phase of price delivery characterized by impulsive, one-directional movement away from a consolidation or retracement. Expansion creates Fair Value Gaps, breaks structure, and represents the distribution phase of the AMD cycle. High momentum, low retracement, strong close. Opposite of consolidation.',
+    example: 'After 2 hours of Asia range consolidation, London opens and price drops 100 points in 20 minutes, breaking below all prior Asia structure with large bearish candles. This impulsive break is the expansion/distribution phase.',
     related: ['Consolidation', 'Displacement', 'AMD Cycle', 'Fair Value Gap'],
   },
   {
@@ -460,6 +491,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'consolidation',
     definition: 'A period of balanced, range-bound price action where neither buyers nor sellers dominate. Consolidation is the accumulation phase of the AMD cycle. ICT traders avoid trading inside consolidation — they wait for the expansion that follows. Consolidation creates the range that will be swept in the manipulation phase.',
+    example: 'NQ ranges between 18,200 and 18,260 all Asia session — back and forth, no clear direction. This 60-point range is Consolidation/Accumulation. ICT waits for the London manipulation that follows before any trade.',
     related: ['Expansion', 'AMD Cycle', 'Accumulation', 'Dealing Range'],
   },
   {
@@ -488,6 +520,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'convergence',
     definition: 'An area where multiple PD array tools (FVG + Order Block + OTE Fibonacci + prior swing) all align at the same price level. The confluence of multiple tools at one zone dramatically increases the probability of a reaction. ICT\'s highest probability setups occur where the most tools converge at the right time.',
+    example: 'At 18,300: a bullish FVG (18,290–18,310), an OB (18,295–18,305), and the 61.8% Fibonacci retracement all converge. These three tools form a high-probability convergence zone — this is the POI to wait for during the NY AM kill zone.',
     related: ['PD Array', 'Fair Value Gap', 'Order Block', 'Optimal Trade Entry'],
   },
   {
@@ -504,6 +537,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'creep',
     definition: 'A slow, methodical, almost imperceptible price delivery in one direction, characterized by small candles with minimal volatility. Price creep is the opposite of displacement — instead of a fast move, price edges incrementally in one direction. Creep often precedes a significant impulsive move and indicates quiet institutional accumulation.',
+    example: 'ES edges upward 2–3 points every 15 minutes from 9 PM to 1 AM with zero volatility. Then London opens and prints a 40-point candle. The quiet overnight drift was institutional creep — quiet accumulation before the expansion.',
     related: ['Consolidation', 'Accumulation', 'Displacement', 'Compression'],
   },
   {
@@ -512,6 +546,7 @@ export const TERMS: Term[] = [
     category: 'Price Delivery',
     diagramId: 'compression',
     definition: 'A period of contracting range and reducing volatility that typically precedes an explosive directional move. Compression is similar to accumulation but specifically describes the tightening price action — candles becoming progressively smaller — immediately before a large move. ICT identifies compression zones as high-alert areas where a significant move is imminent.',
+    example: 'After a big down move, candles progressively shrink: 20pts, 15pts, 10pts, 6pts, 4pts. Price is compressing into a coil. The tighter the compression, the more explosive the subsequent move.',
     related: ['Consolidation', 'Expansion', 'Accumulation', 'Price Creep'],
   },
 
@@ -532,6 +567,7 @@ export const TERMS: Term[] = [
     category: 'Order Blocks',
     diagramId: 'breaker-block',
     definition: 'A former order block that has been violated — price has broken through it and the OB has failed. When a bullish OB fails (price falls through it), it becomes a bearish breaker. When a bearish OB fails (price rises through it), it becomes a bullish breaker. Breakers act as significant support/resistance levels.',
+    example: 'A bullish OB at 4490–4500 holds twice, then price closes below 4490 with a large bearish candle. The OB is now a breaker — former support becomes resistance. Short the next rally back to 4490–4500.',
     related: ['Order Block', 'Mitigation Block', 'Market Structure', 'Flip'],
   },
   {
@@ -540,6 +576,7 @@ export const TERMS: Term[] = [
     category: 'Order Blocks',
     diagramId: 'mitigation-block',
     definition: 'An order block that has been partially mitigated — price has returned to it and absorbed some of the resting orders, but not fully broken through. After mitigation, the remaining orders at that level continue to act as support/resistance, often providing another entry opportunity.',
+    example: 'Bullish OB at 4490–4500. First touch: price wicks to 4492 and bounces 20 points. Price later pulls back AGAIN to 4492 — the second touch of the mitigation block offers a cleaner, tighter entry than the first.',
     related: ['Order Block', 'Breaker Block', 'Rebalancing'],
   },
   {
@@ -548,6 +585,7 @@ export const TERMS: Term[] = [
     category: 'Order Blocks',
     diagramId: 'propulsion-block',
     definition: 'A specific type of order block that forms within a strong trend, found in areas of rapid price movement. Propulsion blocks indicate continuation rather than reversal and are used to find entries in the direction of the prevailing trend after a pullback. They sit mid-leg within an expansion move.',
+    example: 'In a strong NQ bull trend, a mid-run 15m candle with a small body and lower wick forms at 18,250. Price bounces and continues higher. On the next pullback to 18,250, this propulsion block is the trend-continuation entry.',
     related: ['Order Block', 'PD Array', 'Displacement', 'Expansion'],
   },
   {
@@ -556,6 +594,7 @@ export const TERMS: Term[] = [
     category: 'Order Blocks',
     diagramId: 'rejection-block',
     definition: 'A candle with a significant wick that shows strong rejection of a price level. The wick itself represents an area where orders were present. ICT uses rejection blocks as potential entry areas — when price returns to the upper portion of the wick, it may find support or resistance.',
+    example: 'A candle wicks from 4500 up to 4530 (30-point wick) but closes at 4505. The 4520–4530 wick area is the rejection block — institutional sells were placed there. When price returns to 4520–4530, short from the wick zone.',
     related: ['Order Block', 'Liquidity Sweep', 'Stop Hunt'],
   },
   {
@@ -564,6 +603,7 @@ export const TERMS: Term[] = [
     category: 'Order Blocks',
     diagramId: 'institutional-candle',
     definition: 'A large, decisive candle that represents significant institutional participation. These candles often form the basis of order blocks and displacements. Characterized by large bodies, minimal wicks, and occurring after liquidity has been swept. They signal directional conviction from smart money.',
+    example: 'At 9:32 AM, a 15m candle covers 80 points with no wick, closing at its high after sweeping the overnight low. Its size, directionality, and timing (right after a sweep) identify it as institutional. The base of that candle is the OB.',
     related: ['Order Block', 'Displacement', 'Market Structure Shift'],
   },
   {
@@ -572,6 +612,7 @@ export const TERMS: Term[] = [
     category: 'Order Blocks',
     diagramId: 'void',
     definition: 'An area of price that was covered rapidly by an institutional candle or run of candles, leaving a void of resting orders. Voids represent one-sided markets and are targets for price to return to and fill with two-sided participation. The larger the void, the more likely price revisits it.',
+    example: 'A bearish institutional candle drops from 18,400 to 18,250 in one candle. That 150-point body covered a void — price never traded two-sided through it. Expect a return to fill the void before any sustained move lower.',
     related: ['Liquidity Void', 'Fair Value Gap', 'Displacement', 'Imbalance'],
   },
   {
@@ -580,6 +621,7 @@ export const TERMS: Term[] = [
     category: 'Order Blocks',
     diagramId: 'point-of-origin',
     definition: 'The specific candle or zone where an impulsive institutional move began — the exact source of the directional order flow. The point of origin is often an order block or FVG at the start of a displacement. Price frequently returns to the point of origin to pick up remaining institutional orders before the next major move.',
+    example: 'A bearish run began from a specific 5m candle at 10:07 AM at 4520. That candle is the point of origin — the source of the order flow. Price returning to 4518–4522 on a pullback is returning to where institutions first sold.',
     related: ['Order Block', 'Displacement', 'Fair Value Gap', 'Retest'],
   },
   {
@@ -588,6 +630,7 @@ export const TERMS: Term[] = [
     category: 'Order Blocks',
     diagramId: 'reclaim',
     definition: 'When price returns to and closes back above (or below) a level that was previously violated. A reclaim is the opposite of a clean break — if price breaks below support then closes back above it, the support level is reclaimed. ICT views level reclaims as potential reversal confirmations, especially when accompanied by displacement.',
+    example: 'Key support at 4500 breaks; price falls to 4480. Next session, price rallies back above 4500 and a 5m candle closes at 4506. The level is reclaimed — ICT treats that close as a potential long signal.',
     related: ['Breaker Block', 'Retest', 'Break of Structure', 'Flip'],
   },
 
@@ -598,6 +641,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'kill-zones',
     definition: 'Specific time windows during the trading day when institutional participation is highest and the highest probability ICT setups occur. The four kill zones are: Asian (7PM–11PM EST), London (2AM–5AM EST), New York AM (8:30AM–11AM EST), and New York PM (1:30PM–4PM EST).',
+    example: 'A silver bullet setup appears at 10:05 AM — inside the NY AM kill zone. The same FVG setup appearing at 12:30 PM (lunch) would be skipped. Time qualification is what separates high-probability from low-probability entries.',
     related: ['London Kill Zone', 'New York AM Kill Zone', 'New York PM Kill Zone', 'Asian Session', 'Macro'],
   },
   {
@@ -606,6 +650,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'asian-session',
     definition: 'The overnight trading window roughly 6PM–2AM EST (7PM–11PM kill zone). During Asia, price tends to consolidate and establish the high and low of the session (the Asia range). This range is a key reference for the London and New York sessions — London often sweeps one side of the Asia range.',
+    example: 'From 7 PM to 11 PM, NQ ranges between 18,200 and 18,260 — a quiet 60-point range. At 2 AM London open, price dips below 18,200 (sweeping Asia SSL) before reversing — London used the Asia range as its manipulation target.',
     related: ['Kill Zones', 'Asia Range', 'Judas Swing', 'London Kill Zone'],
   },
   {
@@ -614,6 +659,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'asia-range',
     definition: 'The high and low established during the Asian session. The Asia range high and low are key liquidity levels — buy stops sit above the high, sell stops sit below the low. London session frequently sweeps one side of the Asia range before reversing in the true direction of the day.',
+    example: 'Asia high: 18,260. Asia low: 18,200. London dips to 18,192 (sweeping SSL below Asia low), closes back inside the range. NY then rallies to 18,340, clearing the Asia high (BSL). Both Asia extremes were liquidity targets.',
     related: ['Asian Session', 'Liquidity Sweep', 'London Kill Zone', 'Judas Swing'],
   },
   {
@@ -622,6 +668,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'london-kill-zone',
     definition: 'The 2AM–5AM EST window when London markets open. One of the highest probability windows for ICT setups. London frequently creates the Judas swing — sweeping one side of the Asia range to engineer liquidity before establishing the true directional move. Many daily high/low formations originate in London.',
+    example: 'At 3:15 AM during London kill zone, price dips below the overnight low with a long wick (Judas). By 4 AM, price is back above the Asia range midpoint. This 30-minute window was the Manipulation phase — NY bias is now bullish.',
     related: ['Kill Zones', 'Judas Swing', 'Asia Range', 'New York AM Kill Zone'],
   },
   {
@@ -630,6 +677,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'ny-am-kill-zone',
     definition: 'The 8:30AM–11AM EST window — the highest liquidity and most volatile session of the US trading day. Encompasses the NY open, economic data releases (8:30AM), and the first hour of full US participation. Many of the highest R-multiple ICT setups occur in this window.',
+    example: 'At 9:32 AM (two minutes into NY open), a large displacement candle sweeps the overnight low and reverses bullishly. The FVG created by that candle is the NY AM kill zone entry — one of the cleanest setups of the day.',
     related: ['Kill Zones', 'New York PM Kill Zone', 'FOMC', 'Macro'],
   },
   {
@@ -638,6 +686,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'ny-pm-kill-zone',
     definition: 'The 1:30PM–4PM EST window. After the NY lunch lull (12PM–1:30PM), the PM session often sees directional continuation or the day\'s second significant move. The 1:30PM macro and 3PM silver bullet are key windows within this kill zone.',
+    example: 'The morning session was flat. At 1:45 PM during the NY PM kill zone, price sweeps the morning high (BSL) and reverses with a bearish displacement. Short from the resulting 5m bearish OB.',
     related: ['Kill Zones', 'New York AM Kill Zone', 'Macro', 'NY Lunch'],
   },
   {
@@ -646,6 +695,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'ny-lunch',
     definition: 'The 12PM–1:30PM EST period when institutional participation drops significantly and retail/algorithmic trading dominates. Price action during lunch is choppy, unreliable, and often reverses the morning move. ICT strongly advises against trading during NY lunch.',
+    example: 'A bullish OB forms at 12:15 PM — perfect setup, but it\'s lunch. ICT skips it. Price chops for 20 minutes and stops out. At 1:38 PM (PM kill zone), the same structure appears and runs cleanly for 2R.',
     related: ['New York AM Kill Zone', 'New York PM Kill Zone', 'Kill Zones'],
   },
   {
@@ -654,6 +704,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'macro',
     definition: 'Specific 20-minute windows during the trading day when algorithmic price delivery is most predictable. Key macros: 8:50–9:10 AM, 9:50–10:10 AM, 10:50–11:10 AM, 1:10–1:30 PM, 2:10–2:30 PM, 3:15–4:00 PM EST. Within macros, ICT looks for the highest quality setups as algo behavior is most consistent.',
+    example: 'At exactly 9:50 AM (start of the 9:50–10:10 macro), price sweeps SSL and displaces bullishly. By 10:10 the move is complete — 18 NQ points in 20 minutes, entirely within the macro window.',
     related: ['Kill Zones', 'Silver Bullet', 'Power of Three'],
   },
   {
@@ -662,6 +713,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'silver-bullet',
     definition: 'A specific ICT model that operates within defined time windows — 3–4AM, 10–11AM, or 2–3PM EST. The setup involves a liquidity sweep followed by an FVG entry in the direction of the bias. Named for its precision and high probability when the conditions align properly.',
+    example: 'At 10:04 AM (inside the 10–11 AM silver bullet window), NQ sweeps equal lows, creates a bullish FVG, and price enters the gap at 10:06. Entry, stop below sweep wick, exited at 10:28 for 2.4R.',
     related: ['Macro', 'Fair Value Gap', 'Liquidity Sweep', 'AMD Cycle'],
   },
   {
@@ -670,6 +722,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'fomc',
     definition: 'Federal Open Market Committee announcements — the highest impact economic events in US markets. Released 8 times per year at 2PM EST. ICT advises staying out of the market around FOMC releases due to extreme volatility and unpredictable algorithmic behavior. FOMC sessions often see massive liquidity sweeps in both directions.',
+    example: 'FOMC at 2 PM: price sweeps BSL at 2:01, then SSL at 2:03 — 100 points in 2 minutes. By 2:10, price is 150 points above 2 PM levels. Trading this is gambling. The ICT approach is to observe, not participate.',
     related: ['New York PM Kill Zone', 'Kill Zones', 'Two-Way Liquidity Flow'],
   },
   {
@@ -678,6 +731,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'true-day',
     definition: 'ICT\'s concept that the trading day begins at midnight (12:00 AM) rather than at the 6PM futures open. The true day high and low are measured from midnight, and reference points like Previous Day High/Low are calculated from this perspective.',
+    example: 'NQ\'s midnight open is 18,350. By 9 AM, price is at 18,240 — in discount relative to the midnight open. By 2 PM, price returns to 18,350 (midnight open acting as magnet) before continuing higher.',
     related: ['PDH / PDL', 'New Day Opening Gap', 'Kill Zones', 'Midnight Open'],
   },
   {
@@ -687,6 +741,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'pdh-pdl',
     definition: 'The high and low of the previous trading day. These are key reference levels for the current day — buy stops rest above PDH, sell stops below PDL. ICT frequently uses PDH and PDL as liquidity targets and entry level references.',
+    example: 'Yesterday\'s high: 4530. Today, price rallies to 4532 before reversing — the PDH swept (BSL above triggered). Now 4530 becomes a short entry zone with a stop above 4532.',
     related: ['PWH / PWL', 'PMH / PML', 'Buy Side Liquidity', 'Sell Side Liquidity'],
   },
   {
@@ -696,6 +751,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'pwh-pwl',
     definition: 'The high and low from the previous trading week. Significant liquidity pools — stops accumulate above and below these levels over the week. PWH and PWL are often weekly draw on liquidity targets and key reference levels for weekly bias analysis.',
+    example: 'Prior week high: 18,500. Price stays below it all week. Thursday, price runs to 18,502 — sweeping the PWH (BSL). A bearish FVG forms at 18,498–18,504. Short from there targets the prior week low (PWL) below.',
     related: ['PDH / PDL', 'PMH / PML', 'Buy Side Liquidity', 'Weekly Profile'],
   },
   {
@@ -705,6 +761,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'pmh-pml',
     definition: 'The high and low of the previous calendar month. Major liquidity levels that institutions reference. PMH and PML often serve as long-term draw on liquidity targets and help frame the monthly macro bias.',
+    example: 'Prior month high: 4,600. NQ consolidates below it for 3 weeks. It finally spikes above to 4,605 and immediately reverses — the PMH BSL sweep is the signal for a larger reversal lower.',
     related: ['PDH / PDL', 'PWH / PWL', 'Buy Side Liquidity', 'IPDA'],
   },
   {
@@ -714,6 +771,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'ndog',
     definition: 'The gap between the previous day\'s closing price (at midnight) and the opening price of the new day. NDOGs tend to be filled as the market seeks to rebalance the gap. ICT uses NDOGs as reference levels for intraday price delivery.',
+    example: 'NQ closed at 18,300 at midnight. Today\'s first candle opens at 18,315 — a 15-point NDOG. By 10 AM, price retraces into 18,305 filling the gap before the session trend begins.',
     related: ['New Week Opening Gap', 'True Day', 'Opening Range Gap', 'Midnight Open'],
   },
   {
@@ -723,6 +781,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'nwog',
     definition: 'The gap between Friday\'s closing price and Sunday\'s opening price in futures. NWOGs are significant reference levels that price often fills during the week. A bullish NWOG (gap up on open) suggests bullish bias; a bearish NWOG suggests bearish bias.',
+    example: 'ES closed Friday at 4500. Sunday night opens at 4490 — a 10-point bearish NWOG. Monday, price fills the gap back to 4500 before any meaningful directional move begins. The gap fill is the first target of the week.',
     related: ['New Day Opening Gap', 'Opening Range Gap', 'Weekly Profile'],
   },
   {
@@ -732,6 +791,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'opening-range-gap',
     definition: 'A gap that forms at a session or market open between the previous close and new open. Opening range gaps create imbalances that the market typically seeks to fill. Used as reference levels and potential entry/target zones.',
+    example: 'Equities close at 9:29 at 4498. NYSE opens at 9:30 at 4502 — a 4-point ORG. Price retraces to 4498 by 9:45 AM, fills the gap, then continues higher confirming bullish bias for the session.',
     related: ['New Day Opening Gap', 'New Week Opening Gap', 'Fair Value Gap'],
   },
   {
@@ -741,6 +801,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'cbdr',
     definition: 'The price range established between 2:00 AM and 5:00 AM EST — the window before New York futures open. The CBDR high and low are key reference levels. A break above the CBDR high after 5AM is bullish; below the low is bearish. ICT uses the CBDR to frame the directional bias for the NY session.',
+    example: 'Between 2–5 AM, ES ranges 4500–4520 (CBDR). At 5:30 AM, a candle closes above 4520 with momentum. CBDR high break is the NY bullish signal — look for long setups during the AM kill zone.',
     related: ['Kill Zones', 'New York AM Kill Zone', 'Asia Range', 'Daily Bias'],
   },
   {
@@ -749,6 +810,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'london-close',
     definition: 'The 11:00 AM–12:00 PM EST window when the London session officially closes. This often creates a brief counter-trend move as European institutions close positions before NY lunch. ICT warns against trading London close — it is a low-probability window characterized by choppy, reversing price action.',
+    example: 'A bullish FVG appears at 11:20 AM — during London close. Despite the valid setup, ICT skips it. Price chops for 30 minutes and reverses before any meaningful move. London close setups are consistently low quality.',
     related: ['London Kill Zone', 'New York AM Kill Zone', 'NY Lunch', 'Kill Zones'],
   },
   {
@@ -757,6 +819,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'midnight-open',
     definition: 'The price level at exactly 12:00 AM (midnight) EST — the reference point ICT uses to define the true opening price of each trading day in futures. The midnight open acts as a magnet for price and a reference for determining whether the current day is trading premium or discount relative to where it opened.',
+    example: 'NQ midnight open: 18,350. By 9 AM, price is at 18,280 — trading below the midnight open (discount). By 11 AM, price reverses back to 18,350, magnetized by the midnight open reference price.',
     related: ['True Day', 'New Day Opening Gap', 'Daily Bias', 'Opening Range Gap'],
   },
   {
@@ -766,6 +829,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'adr',
     definition: 'The average high-to-low range of a market over a defined period (typically 5–20 days). ICT uses the ADR to estimate how far price is likely to travel in a session and set realistic profit targets. If the ADR for ES is 30 points and price has already moved 25 points, the remaining expected range is limited.',
+    example: 'NQ\'s 10-day ADR is 200 points. By 11 AM, price has already moved 185 points from low to high. Only 15 points of expected range remain — ICT avoids chasing moves beyond ADR and tightens targets.',
     related: ['Daily Bias', 'CBDR', 'Draw on Liquidity', 'Implied Move'],
   },
   {
@@ -774,6 +838,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'overnight-range',
     definition: 'The high and low established during overnight hours (typically between NY close and London open, approximately 5PM–2AM EST). The overnight range creates reference levels for the London and NY sessions. Stops accumulate above and below the overnight range, making its extremes potential liquidity targets.',
+    example: 'Overnight high: 18,280. Overnight low: 18,220. At NY open, price spikes below 18,220 (sweeping overnight SSL) then reverses bullishly. The overnight range extremes correctly identified both the manipulation level and the trade entry.',
     related: ['Asia Range', 'Asian Session', 'London Kill Zone', 'Liquidity Pool'],
   },
   {
@@ -783,6 +848,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'optimal-time',
     definition: 'ICT\'s time-based constraint that limits trade entries to specific windows of highest institutional participation. The optimal windows are: 7:00–8:00 AM (pre-market awareness), 8:30–11:00 AM (NY AM kill zone), and 1:30–4:00 PM (NY PM kill zone). Outside these windows, trade probability drops significantly.',
+    example: 'An FVG forms at 1:00 PM on the 15m chart. OTT says 12–1:30 PM is lunch — low probability. ICT skips it. The same FVG returning at 9:45 AM (NY AM kill zone) becomes a textbook high-probability trade.',
     related: ['Kill Zones', 'Macro', 'Silver Bullet', 'New York AM Kill Zone'],
   },
   {
@@ -791,6 +857,7 @@ export const TERMS: Term[] = [
     category: 'Sessions & Time',
     diagramId: 'session-high-low',
     definition: 'The highest and lowest prices traded during a specific market session (London, New York, Asian). Session highs and lows are dynamic reference levels that accumulate stop orders as the session progresses. The session high typically forms during the Judas swing and the session low during the true directional move (or vice versa in a bearish scenario).',
+    example: 'By 10:30 AM, the session high is 18,350 (formed by the Judas spike). By 3 PM, the session low is 18,150 — the true directional move. The session high was manipulation; the session low is the distribution destination.',
     related: ['Judas Swing', 'Kill Zones', 'Asia Range', 'PDH / PDL'],
   },
 
@@ -801,6 +868,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'amd',
     definition: 'Accumulation → Manipulation → Distribution. ICT\'s framework for understanding how smart money orchestrates price movement. Accumulation: institutions quietly build positions in a range. Manipulation: a false move (Judas swing) to trap retail traders and engineer liquidity. Distribution: the real directional move begins.',
+    example: 'Asia 18,200–18,260 (Accumulation). London dips to 18,185, sweeps SSL (Manipulation). NY rallies from 18,185 to 18,380 (Distribution). Three phases, one day, one framework.',
     related: ['Accumulation', 'Manipulation', 'Distribution', 'Judas Swing', 'Power of Three'],
   },
   {
@@ -809,6 +877,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'accumulation',
     definition: 'The phase in the AMD cycle where institutions quietly build their position in a ranging market. Price appears choppy and directionless. Retail traders often lose money trying to trade the range. ICT identifies accumulation by the consolidating price action before a significant move.',
+    example: 'NQ from 9 PM to 2 AM: ranging 18,200–18,260, no clear direction, multiple failed breakout attempts. This is Accumulation — institutions building positions quietly before the London manipulation move.',
     related: ['AMD Cycle', 'Manipulation', 'Distribution', 'Consolidation'],
   },
   {
@@ -817,6 +886,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'manipulation',
     definition: 'The engineered false move in the AMD cycle — designed to trap retail traders in the wrong direction and generate the liquidity needed for institutional distribution. The Judas swing and London sweep of the Asia range are classic manipulation phases. Manipulation is quickly reversed into the true direction.',
+    example: 'At 3:15 AM, NQ drops 30 points below the Asia low — a spike with an immediate reversal wick. By 4 AM, price is back at the Asia midpoint. That spike was Manipulation — retail shorts are trapped before the real bullish Distribution.',
     related: ['AMD Cycle', 'Judas Swing', 'Liquidity Sweep', 'Accumulation', 'Distribution'],
   },
   {
@@ -825,6 +895,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'distribution',
     definition: 'The true directional move in the AMD cycle — after accumulation and manipulation, institutions distribute their positions by driving price toward the draw on liquidity. Distribution is characterized by displacement and often forms the C leg of the Power of Three model.',
+    example: 'After London sweeps SSL, NY opens and NQ immediately displaces 80 points higher in 3 candles. By 11 AM, it\'s up 200 points from the overnight low. This relentless one-directional move is Distribution delivering to BSL.',
     related: ['AMD Cycle', 'Accumulation', 'Manipulation', 'Power of Three', 'Draw on Liquidity'],
   },
   {
@@ -843,6 +914,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'power-of-three',
     definition: 'ICT\'s three-phase price delivery model: A (accumulation/consolidation) → B (manipulation/false move) → C (distribution/true move). Applied across all timeframes. On a daily chart: Asia consolidates (A), London manipulates (B), NY distributes (C). Understanding Po3 allows traders to identify which phase price is in.',
+    example: 'On a daily chart: Monday range-bound (A). Tuesday dips below Monday\'s low then reverses (B). Wednesday–Friday rallies to the weekly high (C). The weekly A→B→C structure is Po3 on the daily timeframe.',
     related: ['AMD Cycle', 'Accumulation', 'Manipulation', 'Distribution', 'Kill Zones'],
   },
   {
@@ -851,6 +923,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'daily-bias',
     definition: 'The expected directional tendency for the trading day, determined by analyzing HTF market structure, draw on liquidity, and the daily candle context. ICT determines daily bias before the session opens. A bullish daily bias means looking for buy setups during AM and PM kill zones; bearish means looking for shorts.',
+    example: 'Daily chart: price above the 4H OB, making HH-HL, prior day was bullish. Daily bias = bullish. For the day, only look for long setups during AM and PM kill zones. Skip short setups regardless of how clean they look on the 5m.',
     related: ['Weekly Profile', 'Draw on Liquidity', 'MTFA', 'AMD Cycle'],
   },
   {
@@ -859,6 +932,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'weekly-profile',
     definition: 'The anticipated structure of the trading week based on HTF analysis. ICT identifies weekly profiles such as: Monday low for the week (bullish week — sell Monday, buy the rest), Monday high for the week (bearish week), or midweek reversal patterns. Weekly profiles help frame which days are likely to see highs and lows form.',
+    example: 'Monday formed a low at 18,200. By Wednesday, price was at 18,150 — a new lower low. Bearish weekly profile confirmed. Thursday and Friday: only look for short setups; the weekly structure is bearish.',
     related: ['Daily Bias', 'AMD Cycle', 'PWH / PWL', 'Draw on Liquidity'],
   },
   {
@@ -867,6 +941,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'quarterly-shift',
     definition: 'ICT\'s concept that markets shift macro direction every quarter (Q1–Q4). Each quarter has a specific seasonal tendency. Institutional money repositions at quarterly boundaries, often creating significant reversals at the beginning of new quarters. Part of ICT\'s broader seasonal tendencies framework.',
+    example: 'End of Q2 (June 30): NQ at a 3-month high. Q3 begins (July 1): institutions begin repositioning. By July 15, NQ is 500 points lower — Q3 seasonal tendency and the quarterly shift created the reversal.',
     related: ['IPDA', 'Daily Bias', 'Weekly Profile', 'Seasonal Tendencies'],
   },
   {
@@ -876,6 +951,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'ipda',
     definition: 'ICT\'s model for how price is algorithmically delivered between key reference points over time. The algorithm seeks liquidity pools in a defined look-back period (20, 40, or 60 trading days). IPDA looks back 20 days for short-term draws, 40 for intermediate, and 60 for longer-term institutional targets.',
+    example: 'Today is March 20. IPDA 20-day look-back: March 1–20 SSL at 18,000 is the short-term draw. IPDA 40-day look-back: February low at 17,600 is the intermediate target if 18,000 gives way.',
     related: ['Draw on Liquidity', 'PD Array', 'Quarterly Shift'],
   },
   {
@@ -884,6 +960,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'dealing-range',
     definition: 'A significant swing from a major swing low to a major swing high (or vice versa) that defines the current premium/discount context. ICT uses the dealing range to apply Fibonacci levels and identify where price is expensive or cheap relative to the institutional reference points.',
+    example: 'Swing low 18,000 to swing high 18,400 (400-point range). Equilibrium = 18,200. Price at 18,120 is in the lower 30% — deep discount. ICT looks for long setups here targeting 18,300–18,400.',
     related: ['Premium / Discount', 'Equilibrium', 'Fibonacci', 'PD Array'],
   },
   {
@@ -892,6 +969,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'time-and-price',
     definition: 'ICT\'s two primary variables for anticipating market movement. Time refers to when setups should occur (kill zones, macros, session opens). Price refers to where price should trade (OTE, FVGs, order blocks). A valid ICT setup requires BOTH the right price level AND the right time window — either alone is insufficient.',
+    example: 'A perfect FVG exists at 4490–4500 but it\'s 12:30 PM (lunch). Price = right. Time = wrong. Skip it. At 1:35 PM (PM kill zone), price returns to 4492. Now both time AND price align — take the trade.',
     related: ['Kill Zones', 'Macro', 'Optimal Trade Entry', 'Daily Bias'],
   },
   {
@@ -900,6 +978,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'seasonal-tendencies',
     definition: 'ICT\'s framework for anticipated directional bias based on calendar quarters and months. Historically, Q1 (Jan–Mar) tends to see significant directional moves, Q2 is often a reversal quarter, Q3 can be choppy, and Q4 sees year-end positioning. Monthly tendencies include typical turning points at the beginning and end of months.',
+    example: 'Historically, Q1 (Jan–Mar) sees the largest directional moves. ICT identifies the Q4 extreme (December) then trades the Q1 reversal or continuation with higher conviction, knowing seasonal tendencies support the move.',
     related: ['Quarterly Shift', 'IPDA', 'Weekly Profile', 'Daily Bias'],
   },
   {
@@ -908,6 +987,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'daily-profiles',
     definition: 'Specific repeating templates for how a trading day is structured based on the weekly bias. ICT identifies profiles such as: Classic (Monday low of week), Seek and Destroy (double stop hunt), Consolidation day (no directional bias), and Reversal day (prior trend ends). Recognizing which profile is developing helps traders avoid being on the wrong side.',
+    example: 'Monday opens and immediately forms the week\'s low — a Classic bullish profile. ICT trades Monday\'s low as support and targets BSL above, knowing Tue–Fri are expected to be bullish within this profile.',
     related: ['Daily Bias', 'Weekly Profile', 'AMD Cycle', 'Power of Three'],
   },
   {
@@ -916,6 +996,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'running-day',
     definition: 'A day where price establishes its high or low very early in the session, then trends in one direction for the rest of the day with minimal pullbacks. Running days are characterized by directional conviction, consistent new highs or lows throughout, and no significant reversal during the session. Identified by the absence of a Judas swing.',
+    example: 'NQ opens at 18,200, makes its high at 9:35 AM, keeps making new highs every 30 minutes through 3 PM with no significant reversal. This is a running day — the only play is an early long entry or stay out entirely.',
     related: ['Daily Profiles', 'Daily Bias', 'Expansion', 'Distribution'],
   },
   {
@@ -924,6 +1005,7 @@ export const TERMS: Term[] = [
     category: 'AMD & Bias',
     diagramId: 'propulsion-phase',
     definition: 'The accelerating portion of an institutional move where momentum builds and price moves with increasing velocity. During the propulsion phase, candles grow in size, retracements become shallower, and FVGs form in quick succession. The propulsion phase signals full institutional commitment to the directional move.',
+    example: 'After an OB holds on the retest, the next 5 candles are all bullish and each is larger than the last: 5, 8, 12, 18, 22 points. This acceleration is the propulsion phase — hold the trade, this is not the time to take early profit.',
     related: ['Displacement', 'Expansion', 'Distribution', 'Fair Value Gap'],
   },
 
@@ -935,6 +1017,7 @@ export const TERMS: Term[] = [
     category: 'SMC & Models',
     diagramId: 'mtfa',
     definition: 'The practice of analyzing price across multiple timeframes to build a complete picture before executing a trade. ICT hierarchy: Monthly/Weekly for macro bias → Daily/4H for swing context → 1H for execution zones → 15m/5m for entry refinement. Higher timeframes always take precedence over lower timeframes.',
+    example: 'Weekly: bullish. Daily: retracing into a daily OB. 4H: CHoCH at the OB. 1H: bullish FVG. 5m: price enters FVG during NY AM kill zone. Five timeframes aligned = MTFA in practice.',
     related: ['Daily Bias', 'Market Structure', 'Draw on Liquidity', 'HTF Narrative'],
   },
   {
@@ -953,6 +1036,7 @@ export const TERMS: Term[] = [
     category: 'SMC & Models',
     diagramId: 'unicorn-model',
     definition: 'A specific ICT setup combining a market structure shift on a lower timeframe with a Fair Value Gap entry. A breaker block forms, price returns to the FVG within the breaker, and the trader enters with a tight stop. Considered one of ICT\'s highest probability patterns when all elements align.',
+    example: 'Market structure shifts bearish on the 3m. A breaker block forms at 4500–4510. Price pulls back into a bearish FVG within the breaker at 4505–4508. Enter short at 4506, stop at 4511 — the FVG inside the breaker is the unicorn entry.',
     related: ['Market Structure Shift', 'Fair Value Gap', 'Breaker Block', 'Order Block'],
   },
   {
@@ -962,6 +1046,7 @@ export const TERMS: Term[] = [
     category: 'SMC & Models',
     diagramId: 'rally-base-drop',
     definition: 'A three-phase price pattern: Rally (price moves up) → Base (price consolidates, forming a bearish order block) → Drop (price falls sharply from the base). The base phase is where the bearish order block forms and is a key entry level on the return.',
+    example: 'Price rallies 4450→4520 (Rally). Consolidates at 4510–4520, forming a bearish OB (Base). Drops to 4460 (Drop). Next rally to 4510–4520: the Base is the short entry.',
     related: ['Rally Base Rally', 'Order Block', 'Displacement'],
   },
   {
@@ -971,6 +1056,7 @@ export const TERMS: Term[] = [
     category: 'SMC & Models',
     diagramId: 'rally-base-rally',
     definition: 'A bullish continuation pattern: Rally → Base (consolidation/pullback forming a bullish OB) → Rally (continuation). The base forms the bullish order block entry zone. ICT uses RBR structures to find continuation entries in trending markets.',
+    example: 'Price rallies 4450→4490. Pulls back into a bullish OB at 4480–4490 (Base). Rallies again to 4540. On the next retracement to 4480–4490, the Base is the long entry in the continuing trend.',
     related: ['Rally Base Drop', 'Order Block', 'Displacement'],
   },
   {
@@ -979,6 +1065,7 @@ export const TERMS: Term[] = [
     category: 'SMC & Models',
     diagramId: 'open-float',
     definition: 'The opening price of a session, day, week, or month. ICT treats opening prices as significant reference levels — particularly midnight open, NY open (9:30 AM), and the weekly open. Price frequently references these levels as support/resistance throughout the session and seeks to rebalance gaps formed at these reference prices.',
+    example: 'NY opens at 9:30 at 4500. By 11:30 AM, price has rallied to 4520 then retraced back to 4500. The opening price acts as a magnet — the NY open level is the float that price references throughout the session.',
     related: ['New Day Opening Gap', 'Kill Zones', 'Daily Bias', 'Midnight Open'],
   },
   {
@@ -987,6 +1074,7 @@ export const TERMS: Term[] = [
     category: 'SMC & Models',
     diagramId: 'implied-move',
     definition: 'The expected range of price movement for a given session or timeframe based on historical volatility and institutional reference levels. ICT uses implied moves to set realistic profit targets and understand when a move is overextended.',
+    example: 'Options imply a ±50-point move. By 10 AM, price is already down 45 points. The implied move is nearly consumed. ICT tightens targets and becomes cautious about chasing the short — the expected range is spent.',
     related: ['Daily Bias', 'Kill Zones', 'Draw on Liquidity', 'Average Daily Range'],
   },
   {
@@ -1022,6 +1110,7 @@ export const TERMS: Term[] = [
     category: 'SMC & Models',
     diagramId: 'smart-money',
     definition: 'ICT\'s term for institutional traders, central banks, hedge funds, and large banks who move markets with their order flow. Smart money has access to information, capital, and execution capabilities that retail traders do not. The entire ICT methodology is built on the premise of understanding and following smart money positioning rather than fighting it.',
+    example: 'When price wicks below the day\'s equal lows, sweeps the stops, then reverses with a 3× average-sized candle — that reversal is smart money buying. They needed those stop orders (sell orders) to fill their institutional buy positions.',
     related: ['Dumb Money (Retail)', 'Order Flow', 'Liquidity', 'IPDA'],
   },
   {
@@ -1030,6 +1119,7 @@ export const TERMS: Term[] = [
     category: 'SMC & Models',
     diagramId: 'dumb-money',
     definition: 'ICT\'s term for retail traders who consistently lose because they trade at predictable, obvious levels — placing stops at swing highs/lows, buying breakouts, selling breakdowns. Their predictability is exploited by smart money. Understanding dumb money behavior helps ICT traders anticipate where stops are clustered.',
+    example: 'At the breakout above yesterday\'s high, retail traders buy expecting continuation and place stops below the breakout. Smart money sells into the buy orders (the retail longs) and sweeps the stops below — retail is the liquidity.',
     related: ['Smart Money', 'Stop Hunt', 'Liquidity', 'Inducement'],
   },
   {
@@ -1038,6 +1128,7 @@ export const TERMS: Term[] = [
     category: 'SMC & Models',
     diagramId: 'order-flow',
     definition: 'The sequence, direction, and size of orders entering the market. ICT teaches that understanding order flow — specifically institutional order flow — reveals market intent before price moves. When institutional buy orders exceed retail sell orders at a level, price will move up regardless of what retail traders believe about support/resistance.',
+    example: 'During Asia, multiple large buy orders accumulate at 18,200. When London retests 18,200, the level holds with a strong wick and close above. The inability of price to penetrate reveals institutional buy order flow defending the level.',
     related: ['Smart Money', 'Displacement', 'Market Structure Shift', 'Liquidity'],
   },
   {
@@ -1046,6 +1137,7 @@ export const TERMS: Term[] = [
     category: 'SMC & Models',
     diagramId: 'flip',
     definition: 'When a previous support level, after being broken, becomes a resistance level — or vice versa. In ICT, a flip occurs when price violates an Order Block or key level, converting its polarity. A bullish OB that fails (is broken to the downside) becomes a Breaker Block that now acts as resistance.',
+    example: 'The 4H bullish OB at 4490–4500 holds twice. Third test: price gaps below 4490 with a large bearish candle. The OB is flipped — former support becomes resistance. Short the next rally back to 4490–4500.',
     related: ['Breaker Block', 'Order Block', 'Break of Structure', 'Inversion FVG'],
   },
   {
@@ -1074,6 +1166,7 @@ export const TERMS: Term[] = [
     category: 'SMC & Models',
     diagramId: 'htf-narrative',
     definition: 'The overall directional story told by higher timeframe analysis (weekly, daily, 4-hour charts). The HTF narrative determines which direction to trade on lower timeframes. If the daily chart is bearish (making LH-LL), the HTF narrative is bearish — only look for short setups on the 15m and 5m. All trades should align with the HTF narrative.',
+    example: 'Weekly bearish for 3 weeks. Daily: below 4H OB, making LH-LL. HTF narrative is bearish. A perfect-looking bullish FVG appears on the 5m. The HTF narrative overrides — no longs. Only short setups are valid today.',
     related: ['MTFA', 'Daily Bias', 'Weekly Profile', 'Market Structure'],
   },
 ]
